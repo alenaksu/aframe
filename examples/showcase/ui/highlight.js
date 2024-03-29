@@ -1,6 +1,6 @@
 /* global AFRAME */
 AFRAME.registerComponent('highlight', {
-  init: function () {
+  init() {
     var buttonEls = this.buttonEls = this.el.querySelectorAll('.menu-button');
     var backgroundEl = document.querySelector('#background');
     this.onClick = this.onClick.bind(this);

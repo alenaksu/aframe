@@ -1,6 +1,6 @@
 /* global AFRAME, THREE */
 AFRAME.registerComponent('page-controls', {
-  init: function () {
+  init() {
     var self = this;
     var el = this.el;
     var pageEl = this.pageEl = document.querySelector('[layer]');

@@ -184,7 +184,7 @@ function validateAndGetQuerySelector (selector) {
   }
 }
 
-module.exports = {
+export default {
   parseUrl: parseUrl,
   validateSrc: validateSrc,
   validateCubemapSrc: validateCubemapSrc,

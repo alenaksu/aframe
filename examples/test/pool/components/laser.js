@@ -5,7 +5,7 @@ AFRAME.registerComponent('laser', {
     speed: { default: 1 }
   },
 
-  init: function () {
+  init() {
     var el = this.el;
     var geometry = 'primitive: box; height: 2; width: 0.1; depth: 0.1';
     var material = 'color: yellow';

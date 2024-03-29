@@ -27,7 +27,7 @@ module.exports.System = registerSystem('renderer', {
     foveationLevel: {default: 1}
   },
 
-  init: function () {
+  init() {
     var data = this.data;
     var sceneEl = this.el;
     var toneMappingName = this.data.toneMapping.charAt(0).toUpperCase() + this.data.toneMapping.slice(1);
@@ -56,7 +56,7 @@ module.exports.System = registerSystem('renderer', {
     renderer.setOpaqueSort(sortFrontToBack);
   },
 
-  update: function () {
+  update() {
     var data = this.data;
     var sceneEl = this.el;
     var renderer = sceneEl.renderer;

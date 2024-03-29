@@ -16,7 +16,7 @@ var shaderNames = shader.shaderNames;
  *         three.js's implementation of PBR. Another standard shading model is `flat` which
  *         uses MeshBasicMaterial.
  */
-module.exports.Component = registerComponent('material', {
+export const Component = registerComponent('material', {
   schema: {
     alphaTest: {default: 0.0, min: 0.0, max: 1.0},
     depthTest: {default: true},
@@ -36,7 +36,7 @@ module.exports.Component = registerComponent('material', {
     anisotropy: {default: 0, min: 0}
   },
 
-  init: function () {
+  init() {
     this.material = null;
   },
 
@@ -45,7 +45,7 @@ module.exports.Component = registerComponent('material', {
    *
    * @param {object|null} oldData
    */
-  update: function (oldData) {
+  update(oldData) {
     var data = this.data;
     if (!this.shader || data.shader !== oldData.shader) {
       this.updateShader(data.shader);
@@ -155,7 +155,7 @@ module.exports.Component = registerComponent('material', {
    * Remove material on remove (callback).
    * Dispose of it from memory and unsubscribe from scene updates.
    */
-  remove: function () {
+  remove() {
     var defaultMaterial = new THREE.MeshBasicMaterial();
     var material = this.material;
     var object3D = this.el.getObject3D('mesh');

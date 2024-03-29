@@ -8,7 +8,7 @@ registerComponent('laser-controls', {
     defaultModelColor: {type: 'color', default: 'grey'}
   },
 
-  init: function () {
+  init() {
     var config = this.config;
     var data = this.data;
     var el = this.el;

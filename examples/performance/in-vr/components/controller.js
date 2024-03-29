@@ -4,7 +4,7 @@ AFRAME.registerComponent('controller', {
     hand: {default: 'right'}
   },
 
-  init: function () {
+  init() {
     var config = this.config;
     var data = this.data;
     var el = this.el;

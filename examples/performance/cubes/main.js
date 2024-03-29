@@ -1,6 +1,6 @@
 /* global AFRAME */
 AFRAME.registerComponent('main', {
-  init: function () {
+  init() {
     var urlParams = this.getUrlParams();
     var defaultNumObjects = 5000;
     var numObjects = urlParams.numobjects || defaultNumObjects;

@@ -15,7 +15,7 @@ AFRAME.registerComponent('spatial-window', {
     focused: {default: true}
   },
 
-  init: function () {
+  init() {
     var data = this.data;
     var geometry = this.geometry = SPATIAL.utils.generatePlaneGeometryIndexed(data.width, data.height, 0.05, 22);
     var material = this.material = new THREE.MeshPhysicalMaterial({
@@ -42,7 +42,7 @@ AFRAME.registerComponent('spatial-window', {
     this.el.setObject3D('mesh', this.plane);
   },
 
-  update: function (oldData) {
+  update(oldData) {
     if (this.data.focused !== oldData.focused) { this.updateFocus(); }
   },
 

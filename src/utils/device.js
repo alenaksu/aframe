@@ -189,3 +189,8 @@ module.exports.isBrowserEnvironment = !!(!process || process.browser);
  * Check if running in node on the server.
  */
 module.exports.isNodeEnvironment = !module.exports.isBrowserEnvironment;
+
+/** @deprecated */
+export const isGearVR = () => {
+  warn('`utils.isGearVR` has been deprecated, use `utils.device.isMobileVR`');
+}

@@ -3,7 +3,7 @@ var registerComponent = require('../core/component').registerComponent;
 var utils = require('../utils/');
 var warn = utils.debug('components:layer:warn');
 
-module.exports.Component = registerComponent('layer', {
+export const Component = registerComponent('layer', {
   schema: {
     type: {default: 'quad', oneOf: ['quad', 'monocubemap', 'stereocubemap']},
     src: {type: 'map'},
@@ -12,7 +12,7 @@ module.exports.Component = registerComponent('layer', {
     height: {default: 0}
   },
 
-  init: function () {
+  init() {
     var gl = this.el.sceneEl.renderer.getContext();
 
     this.quaternion = new THREE.Quaternion();
@@ -38,7 +38,7 @@ module.exports.Component = registerComponent('layer', {
     this.onExitVR = this.onExitVR.bind(this);
   },
 
-  update: function (oldData) {
+  update(oldData) {
     if (this.data.src !== oldData.src) { this.updateSrc(); }
   },
 

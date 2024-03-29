@@ -38,7 +38,7 @@ var INPUT_MAPPING_WEBXR = {
 /**
  * Pico Controls
  */
-module.exports.Component = registerComponent('pico-controls', {
+export const Component = registerComponent('pico-controls', {
   schema: {
     hand: {default: 'none'},
     model: {default: true},
@@ -47,7 +47,7 @@ module.exports.Component = registerComponent('pico-controls', {
 
   mapping: INPUT_MAPPING_WEBXR,
 
-  init: function () {
+  init() {
     var self = this;
     this.onButtonChanged = this.onButtonChanged.bind(this);
     this.onButtonDown = function (evt) { onButtonEvent(evt.detail.id, 'down', self, self.data.hand); };
@@ -57,17 +57,17 @@ module.exports.Component = registerComponent('pico-controls', {
     this.bindMethods();
   },
 
-  update: function () {
+  update() {
     var data = this.data;
     this.controllerIndex = data.hand === 'right' ? 0 : data.hand === 'left' ? 1 : 2;
   },
 
-  play: function () {
+  play() {
     this.checkIfControllerPresent();
     this.addControllersUpdateListener();
   },
 
-  pause: function () {
+  pause() {
     this.removeEventListeners();
     this.removeControllersUpdateListener();
   },
@@ -133,7 +133,7 @@ module.exports.Component = registerComponent('pico-controls', {
     this.el.sceneEl.removeEventListener('controllersupdated', this.onControllersUpdate, false);
   },
 
-  onControllersUpdate: function () {
+  onControllersupdate() {
     // Note that due to gamepadconnected event propagation issues, we don't rely on events.
     this.checkIfControllerPresent();
   },

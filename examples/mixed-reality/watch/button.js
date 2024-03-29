@@ -1,6 +1,6 @@
 /* global AFRAME */
 AFRAME.registerComponent('button', {
-  init: function () {
+  init() {
     var buttonContainerEl = this.buttonContainerEl = document.createElement('div');
     var buttonWristEl = this.buttonWristEl = document.createElement('button');
     var buttonPalmEl = this.buttonPalmEl = document.createElement('button');

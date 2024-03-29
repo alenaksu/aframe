@@ -6,7 +6,7 @@ var helpers = require('../helpers');
 var registerComponent = require('index').registerComponent;
 
 var CloneComponent = {
-  init: function () {
+  init() {
     var object3D = this.el.object3D;
     var clone = object3D.clone();
     clone.uuid = 'Bubble Fett';
@@ -371,7 +371,7 @@ suite('Component', function () {
           bar: {type: 'string'}
         },
 
-        update: function () {
+        update() {
           spy();
         }
       });
@@ -392,7 +392,7 @@ suite('Component', function () {
           bar: {type: 'string'}
         },
 
-        update: function () {
+        update() {
           spy();
         }
       });
@@ -864,7 +864,7 @@ suite('Component', function () {
       var el = this.el;
       registerComponent('dummy', {
         schema: {color: {default: 'red'}},
-        init: function () {
+        init() {
           this.initCanary();
           this.el.setAttribute('dummy', {color: 'green'});
         },
@@ -879,7 +879,7 @@ suite('Component', function () {
       var el = this.el;
       registerComponent('dummy', {
         schema: {type: 'number', default: 10},
-        init: function () {
+        init() {
           assert.equal(this.data, 10);
         }
       });
@@ -958,7 +958,7 @@ suite('Component', function () {
       var TestComponent;
       TestComponent = registerComponent('dummy', {
         schema: {color: {default: 'red'}},
-        update: function () { this.el.setAttribute('dummy', 'color', 'blue'); }
+        update() { this.el.setAttribute('dummy', 'color', 'blue'); }
       });
       this.el.addEventListener('componentchanged', evt => {
         assert.equal(evt.detail.name, 'dummy');
@@ -1073,7 +1073,7 @@ suite('Component', function () {
           color: {default: 'red'},
           size: {default: 0}
         },
-        update: function (oldData) {
+        update(oldData) {
           if (this.data.color === 'red') {
             this.el.setAttribute('dummy', 'color', 'blue');
           }
@@ -1236,7 +1236,7 @@ suite('Component', function () {
         arr: {default: ['foo']}
       },
 
-      update: function () {
+      update() {
         assert.equal(this.data.arr[0], 'foo');
         done();
       }

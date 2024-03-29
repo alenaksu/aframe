@@ -87,7 +87,7 @@ var INPUT_MAPPING = isWebXRAvailable ? INPUT_MAPPING_WEBXR : INPUT_MAPPING_WEBVR
  * controller buttons: trackpad, trigger, grip, menu, thumbstick
  * Load a controller model and transform the pressed buttons.
  */
-module.exports.Component = registerComponent('windows-motion-controls', {
+export const Component = registerComponent('windows-motion-controls', {
   schema: {
     hand: {default: DEFAULT_HANDEDNESS},
     // It is possible to have multiple pairs of controllers attached (a pair has both left and right).
@@ -109,7 +109,7 @@ module.exports.Component = registerComponent('windows-motion-controls', {
     this.onAxisMoved = this.onAxisMoved.bind(this);
   },
 
-  init: function () {
+  init() {
     var self = this;
     var el = this.el;
     this.onButtonChanged = this.onButtonChanged.bind(this);
@@ -175,12 +175,12 @@ module.exports.Component = registerComponent('windows-motion-controls', {
     });
   },
 
-  play: function () {
+  play() {
     this.checkIfControllerPresent();
     this.addControllersUpdateListener();
   },
 
-  pause: function () {
+  pause() {
     this.removeEventListeners();
     this.removeControllersUpdateListener();
   },
@@ -247,7 +247,7 @@ module.exports.Component = registerComponent('windows-motion-controls', {
     this.el.sceneEl.removeEventListener('controllersupdated', this.onControllersUpdate, false);
   },
 
-  onControllersUpdate: function () {
+  onControllersupdate() {
     this.checkIfControllerPresent();
   },
 

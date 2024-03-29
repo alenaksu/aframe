@@ -19,7 +19,7 @@ module.exports.Shader = registerShader('shadow', {
     this.material = new THREE.ShadowMaterial();
   },
 
-  update: function (data) {
+  update(data) {
     this.material.opacity = data.opacity;
     this.material.alphaToCoverage = data.alphaToCoverage;
     this.material.transparent = data.transparent;

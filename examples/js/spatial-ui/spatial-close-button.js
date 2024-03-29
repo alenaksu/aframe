@@ -15,7 +15,7 @@ AFRAME.registerComponent('spatial-close-button', {
     focused: {default: true}
   },
 
-  init: function () {
+  init() {
     var data = this.data;
     var geometry = this.geometry = new THREE.CircleGeometry(0.025, 32);
 
@@ -56,6 +56,6 @@ AFRAME.registerComponent('spatial-close-button', {
     targetPlaneEl.addEventListener('mouseleave', function () { material.roughness = 0.8; });
   },
 
-  update: function () {
+  update() {
   }
 });

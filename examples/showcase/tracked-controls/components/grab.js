@@ -6,7 +6,7 @@
 * Updates its position to move along the controller.
 */
 AFRAME.registerComponent('grab', {
-  init: function () {
+  init() {
     this.GRABBED_STATE = 'grabbed';
     // Bind event handlers
     this.onHit = this.onHit.bind(this);
@@ -15,14 +15,14 @@ AFRAME.registerComponent('grab', {
     this.currentPosition = new THREE.Vector3();
   },
 
-  play: function () {
+  play() {
     var el = this.el;
     el.addEventListener('hit', this.onHit);
     el.addEventListener('buttondown', this.onGripClose);
     el.addEventListener('buttonup', this.onGripOpen);
   },
 
-  pause: function () {
+  pause() {
     var el = this.el;
     el.removeEventListener('hit', this.onHit);
     el.addEventListener('buttondown', this.onGripClose);

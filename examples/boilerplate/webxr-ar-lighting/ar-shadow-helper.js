@@ -24,7 +24,7 @@ AFRAME.registerComponent('ar-shadow-helper', {
       default: false
     }
   },
-  init: function () {
+  init() {
     var self = this;
     this.el.object3D.visible = false;
 

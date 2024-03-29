@@ -41,7 +41,7 @@ var INPUT_MAPPING_WEBXR = {
 /**
  * HP Mixed Reality Controls
  */
-module.exports.Component = registerComponent('hp-mixed-reality-controls', {
+export const Component = registerComponent('hp-mixed-reality-controls', {
   schema: {
     hand: {default: 'none'},
     model: {default: true},
@@ -50,7 +50,7 @@ module.exports.Component = registerComponent('hp-mixed-reality-controls', {
 
   mapping: INPUT_MAPPING_WEBXR,
 
-  init: function () {
+  init() {
     var self = this;
     this.controllerPresent = false;
     this.lastControllerCheck = 0;
@@ -64,17 +64,17 @@ module.exports.Component = registerComponent('hp-mixed-reality-controls', {
     this.bindMethods();
   },
 
-  update: function () {
+  update() {
     var data = this.data;
     this.controllerIndex = data.hand === 'right' ? 0 : data.hand === 'left' ? 1 : 2;
   },
 
-  play: function () {
+  play() {
     this.checkIfControllerPresent();
     this.addControllersUpdateListener();
   },
 
-  pause: function () {
+  pause() {
     this.removeEventListeners();
     this.removeControllersUpdateListener();
   },
@@ -142,7 +142,7 @@ module.exports.Component = registerComponent('hp-mixed-reality-controls', {
     this.el.sceneEl.removeEventListener('controllersupdated', this.onControllersUpdate, false);
   },
 
-  onControllersUpdate: function () {
+  onControllersupdate() {
     // Note that due to gamepadconnected event propagation issues, we don't rely on events.
     this.checkIfControllerPresent();
   },

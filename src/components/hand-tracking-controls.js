@@ -48,7 +48,7 @@ var PINCH_END_PERCENTAGE = 0.1;
 /**
  * Controls for hand tracking
  */
-module.exports.Component = registerComponent('hand-tracking-controls', {
+export const Component = registerComponent('hand-tracking-controls', {
   schema: {
     hand: {default: 'right', oneOf: ['left', 'right']},
     modelStyle: {default: 'mesh', oneOf: ['dots', 'mesh']},
@@ -76,7 +76,7 @@ module.exports.Component = registerComponent('hand-tracking-controls', {
     }
   },
 
-  init: function () {
+  init() {
     var sceneEl = this.el.sceneEl;
     var webxrData = sceneEl.getAttribute('webxr');
     var optionalFeaturesArray = webxrData.optionalFeatures;
@@ -118,7 +118,7 @@ module.exports.Component = registerComponent('hand-tracking-controls', {
     this.addChildEntity(evt.detail.el);
   },
 
-  update: function () {
+  update() {
     this.updateModelMaterial();
   },
 
@@ -163,7 +163,7 @@ module.exports.Component = registerComponent('hand-tracking-controls', {
       {hand: hand, iterateControllerProfiles: true, handTracking: true});
   },
 
-  play: function () {
+  play() {
     this.checkIfControllerPresent();
     this.addControllersUpdateListener();
   },
@@ -296,7 +296,7 @@ module.exports.Component = registerComponent('hand-tracking-controls', {
     };
   })(),
 
-  pause: function () {
+  pause() {
     this.removeEventListeners();
     this.removeControllersUpdateListener();
   },
@@ -328,7 +328,7 @@ module.exports.Component = registerComponent('hand-tracking-controls', {
     this.el.sceneEl.removeEventListener('controllersupdated', this.onControllersUpdate, false);
   },
 
-  onControllersUpdate: function () {
+  onControllersupdate() {
     var el = this.el;
     var controller;
     this.checkIfControllerPresent();

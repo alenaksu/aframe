@@ -17,7 +17,7 @@ AFRAME.registerComponent('spatial-hero-image', {
     src: {type: 'map'}
   },
 
-  init: function () {
+  init() {
     var data = this.data;
     var borderRadius = data.roundCorners ? 0.05 : 0.01;
     var geometry = this.geometry = SPATIAL.utils.generatePlaneGeometryIndexed(data.width, data.height, borderRadius, 22);

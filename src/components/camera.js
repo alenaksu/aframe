@@ -5,7 +5,7 @@ var THREE = require('../lib/three');
  * Camera component.
  * Pairs along with camera system to handle tracking the active camera.
  */
-module.exports.Component = registerComponent('camera', {
+export const Component = registerComponent('camera', {
   schema: {
     active: {default: true},
     far: {default: 10000},
@@ -19,7 +19,7 @@ module.exports.Component = registerComponent('camera', {
    * Initialize three.js camera and add it to the entity.
    * Add reference from scene to this entity as the camera.
    */
-  init: function () {
+  init() {
     var camera;
     var el = this.el;
 
@@ -31,7 +31,7 @@ module.exports.Component = registerComponent('camera', {
   /**
    * Update three.js camera.
    */
-  update: function (oldData) {
+  update(oldData) {
     var data = this.data;
     var camera = this.camera;
 
@@ -84,7 +84,7 @@ module.exports.Component = registerComponent('camera', {
   /**
    * Remove camera on remove (callback).
    */
-  remove: function () {
+  remove() {
     this.el.removeObject3D('camera');
   }
 });

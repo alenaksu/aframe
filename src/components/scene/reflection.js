@@ -1,5 +1,5 @@
 /* global THREE, XRWebGLBinding */
-var register = require('../../core/component').registerComponent;
+import { registerComponent } from '../../core/component.js';
 
 // source: view-source:https://storage.googleapis.com/chromium-webxr-test/r886480/proposals/lighting-estimation.html
 function updateLights (estimate, probeLight, directionalLight, directionalLightPosition) {
@@ -22,12 +22,12 @@ function updateLights (estimate, probeLight, directionalLight, directionalLightP
   }
 }
 
-module.exports.Component = register('reflection', {
+export const Component = registerComponent('reflection', {
   schema: {
     directionalLight: { type: 'selector' }
   },
   sceneOnly: true,
-  init: function () {
+  init() {
     var self = this;
     this.cubeRenderTarget = new THREE.WebGLCubeRenderTarget(16);
     this.cubeCamera = new THREE.CubeCamera(0.1, 1000, this.cubeRenderTarget);
@@ -153,7 +153,7 @@ module.exports.Component = register('reflection', {
     }
   },
 
-  remove: function () {
+  remove() {
     this.el.object3D.environment = null;
     if (this.probeLight) {
       this.el.removeChild(this.probeLight);

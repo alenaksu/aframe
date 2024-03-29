@@ -56,7 +56,7 @@ var INPUT_MAPPING = isWebXRAvailable ? INPUT_MAPPING_WEBXR : INPUT_MAPPING_WEBVR
  * touchpad, trigger, grip, menu, system
  * Load a controller model and highlight the pressed buttons.
  */
-module.exports.Component = registerComponent('vive-controls', {
+export const Component = registerComponent('vive-controls', {
   schema: {
     hand: {default: 'left'},
     buttonColor: {type: 'color', default: '#FAFAFA'},  // Off-white.
@@ -67,7 +67,7 @@ module.exports.Component = registerComponent('vive-controls', {
 
   mapping: INPUT_MAPPING,
 
-  init: function () {
+  init() {
     var self = this;
     this.controllerPresent = false;
     this.lastControllerCheck = 0;
@@ -81,17 +81,17 @@ module.exports.Component = registerComponent('vive-controls', {
     this.bindMethods();
   },
 
-  update: function () {
+  update() {
     var data = this.data;
     this.controllerIndex = data.hand === 'right' ? 0 : data.hand === 'left' ? 1 : 2;
   },
 
-  play: function () {
+  play() {
     this.checkIfControllerPresent();
     this.addControllersUpdateListener();
   },
 
-  pause: function () {
+  pause() {
     this.removeEventListeners();
     this.removeControllersUpdateListener();
   },
@@ -167,7 +167,7 @@ module.exports.Component = registerComponent('vive-controls', {
     this.el.sceneEl.removeEventListener('controllersupdated', this.onControllersUpdate, false);
   },
 
-  onControllersUpdate: function () {
+  onControllersupdate() {
     this.checkIfControllerPresent();
   },
 

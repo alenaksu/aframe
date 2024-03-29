@@ -12,11 +12,11 @@ AFRAME.registerComponent('snap', {
     snap: {type: 'vec3'}
   },
 
-  init: function () {
+  init() {
     this.originalPos = this.el.getAttribute('position');
   },
 
-  update: function () {
+  update() {
     var data = this.data;
 
     var pos = AFRAME.utils.clone(this.originalPos);

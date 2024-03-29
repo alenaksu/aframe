@@ -36,7 +36,7 @@ var INPUT_MAPPING_WEBXR = {
  * buttons: trigger, grip, touchpad, and menu.
  * Load a controller model.
  */
-module.exports.Component = registerComponent('magicleap-controls', {
+export const Component = registerComponent('magicleap-controls', {
   schema: {
     hand: {default: 'none'},
     model: {default: true},
@@ -45,7 +45,7 @@ module.exports.Component = registerComponent('magicleap-controls', {
 
   mapping: INPUT_MAPPING_WEBXR,
 
-  init: function () {
+  init() {
     var self = this;
     this.controllerPresent = false;
     this.lastControllerCheck = 0;
@@ -59,17 +59,17 @@ module.exports.Component = registerComponent('magicleap-controls', {
     this.bindMethods();
   },
 
-  update: function () {
+  update() {
     var data = this.data;
     this.controllerIndex = data.hand === 'right' ? 0 : data.hand === 'left' ? 1 : 2;
   },
 
-  play: function () {
+  play() {
     this.checkIfControllerPresent();
     this.addControllersUpdateListener();
   },
 
-  pause: function () {
+  pause() {
     this.removeEventListeners();
     this.removeControllersUpdateListener();
   },
@@ -137,7 +137,7 @@ module.exports.Component = registerComponent('magicleap-controls', {
     this.el.sceneEl.removeEventListener('controllersupdated', this.onControllersUpdate, false);
   },
 
-  onControllersUpdate: function () {
+  onControllersupdate() {
     // Note that due to gamepadconnected event propagation issues, we don't rely on events.
     this.checkIfControllerPresent();
   },

@@ -1,10 +1,10 @@
-const fs = require('fs');
-const gitRev = require('git-rev');
+import fs from 'fs';
+import gitRev from 'git-rev';
 
-const pkg = require('../package.json');
+import pkg from '../package.json' assert { type: 'json' };
 
 // Read file.
-const contents = fs.readFileSync('./src/index.js', 'utf-8');
+const contents = fs.readFileSync('./src/index.ts', 'utf-8');
 
 // Update log message in index.js.
 const timestamp = getBuildTimestamp();
@@ -12,7 +12,7 @@ gitRev.short(hash => {
   const newContents = contents.replace(
     /console.log\('A-Frame Version:.*\)/,
     `console.log('A-Frame Version: ${pkg.version} (Date ${timestamp}, Commit #${hash})')`);
-  fs.writeFileSync('./src/index.js', newContents);
+  fs.writeFileSync('./src/index.ts', newContents);
 });
 
 /**

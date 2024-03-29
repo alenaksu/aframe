@@ -89,7 +89,7 @@ suite('a-mixin', function () {
       assetsEl.appendChild(mixinEl);
 
       registerComponent('delete-mixin', {
-        init: function () {
+        init() {
           this.el.removeAttribute('mixin');
         }
       });

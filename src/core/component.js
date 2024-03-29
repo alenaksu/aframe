@@ -119,7 +119,7 @@ Component.prototype = {
    * Called during component initialization and is only run once.
    * Components can use this to set initial state.
    */
-  init: function () { /* no-op */ },
+  init() { /* no-op */ },
 
   /**
    * Map of event names to bound event handlers that will be lifecycle-handled.
@@ -135,7 +135,7 @@ Component.prototype = {
    *
    * @param {object} prevData - Previous attributes of the component.
    */
-  update: function (prevData) { /* no-op */ },
+  update(prevData) { /* no-op */ },
 
   /**
    * Update schema handler. Allows the component to dynamically change its schema.
@@ -170,19 +170,19 @@ Component.prototype = {
   /**
    * Called to start any dynamic behavior (e.g., animation, AI, events, physics).
    */
-  play: function () { /* no-op */ },
+  play() { /* no-op */ },
 
   /**
    * Called to stop any dynamic behavior (e.g., animation, AI, events, physics).
    */
-  pause: function () { /* no-op */ },
+  pause() { /* no-op */ },
 
   /**
    * Remove handler. Similar to detachedCallback.
    * Called whenever component is removed from the entity (i.e., removeAttribute).
    * Components can use this to reset behavior on the entity.
    */
-  remove: function () { /* no-op */ },
+  remove() { /* no-op */ },
 
   /**
    * Stringify properties if necessary.
@@ -344,7 +344,7 @@ Component.prototype = {
     this.throttledEmitComponentChanged();
   },
 
-  handleMixinUpdate: function () {
+  handleMixinupdate() {
     this.recomputeData();
     this.updateSchemaIfNeeded();
     this.callUpdateHandler();

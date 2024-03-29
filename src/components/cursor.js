@@ -41,7 +41,7 @@ var CANVAS_HOVER_CLASS = 'a-mouse-cursor-hover';
  * @member {Element} intersectedEl - Currently-intersected entity. Used to keep track to
  *         emit events when unintersecting.
  */
-module.exports.Component = registerComponent('cursor', {
+export const Component = registerComponent('cursor', {
   dependencies: ['raycaster'],
 
   schema: {
@@ -55,7 +55,7 @@ module.exports.Component = registerComponent('cursor', {
 
   multiple: true,
 
-  init: function () {
+  init() {
     var self = this;
 
     this.fuseTimeout = undefined;
@@ -82,7 +82,7 @@ module.exports.Component = registerComponent('cursor', {
     this.onEnterVR = this.onEnterVR.bind(this);
   },
 
-  update: function (oldData) {
+  update(oldData) {
     if (this.data.rayOrigin === oldData.rayOrigin) { return; }
     this.updateMouseEventListeners();
   },
@@ -100,15 +100,15 @@ module.exports.Component = registerComponent('cursor', {
     }
   },
 
-  play: function () {
+  play() {
     this.addEventListeners();
   },
 
-  pause: function () {
+  pause() {
     this.removeEventListeners();
   },
 
-  remove: function () {
+  remove() {
     var el = this.el;
     el.removeState(STATES.HOVERING);
     el.removeState(STATES.FUSING);

@@ -10,7 +10,7 @@ var EVENTS = {
   TOUCHEND: 'touchend'
 };
 
-module.exports.Component = registerComponent('tracked-controls-webxr', {
+export const Component = registerComponent('tracked-controls-webxr', {
   schema: {
     id: {type: 'string', default: ''},
     hand: {type: 'string', default: ''},
@@ -20,7 +20,7 @@ module.exports.Component = registerComponent('tracked-controls-webxr', {
     space: {type: 'string', oneOf: ['targetRaySpace', 'gripSpace'], default: 'gripSpace'}
   },
 
-  init: function () {
+  init() {
     this.updateController = this.updateController.bind(this);
     this.buttonEventDetails = {};
     this.buttonStates = this.el.components['tracked-controls'].buttonStates = {};
@@ -29,17 +29,17 @@ module.exports.Component = registerComponent('tracked-controls-webxr', {
     this.axisMoveEventDetail = {axis: this.axis, changed: this.changedAxes};
   },
 
-  update: function () {
+  update() {
     this.updateController();
   },
 
-  play: function () {
+  play() {
     var sceneEl = this.el.sceneEl;
     this.updateController();
     sceneEl.addEventListener('controllersupdated', this.updateController);
   },
 
-  pause: function () {
+  pause() {
     var sceneEl = this.el.sceneEl;
     sceneEl.removeEventListener('controllersupdated', this.updateController);
   },

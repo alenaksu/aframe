@@ -1,15 +1,15 @@
 var registerComponent = require('../core/component').registerComponent;
 
-module.exports.Component = registerComponent('position', {
+export const Component = registerComponent('position', {
   schema: {type: 'vec3'},
 
-  update: function () {
+  update() {
     var object3D = this.el.object3D;
     var data = this.data;
     object3D.position.set(data.x, data.y, data.z);
   },
 
-  remove: function () {
+  remove() {
     // Pretty much for mixins.
     this.el.object3D.position.set(0, 0, 0);
   }

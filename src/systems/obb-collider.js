@@ -5,7 +5,7 @@ registerSystem('obb-collider', {
     showColliders: {default: false}
   },
 
-  init: function () {
+  init() {
     this.collisions = [];
     this.colliderEls = [];
   },

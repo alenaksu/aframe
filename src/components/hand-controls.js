@@ -48,14 +48,14 @@ EVENTS[ANIMATIONS.point] = 'pointing';
  *
  * @property {string} Hand mapping (`left`, `right`).
  */
-module.exports.Component = registerComponent('hand-controls', {
+export const Component = registerComponent('hand-controls', {
   schema: {
     color: {default: 'white', type: 'color'},
     hand: { default: 'left' },
     handModelStyle: {default: 'lowPoly', oneOf: ['lowPoly', 'highPoly', 'toon']}
   },
 
-  init: function () {
+  init() {
     var self = this;
     var el = this.el;
     // Active buttons populated by events provided by the attached controls.
@@ -94,11 +94,11 @@ module.exports.Component = registerComponent('hand-controls', {
     el.object3D.visible = false;
   },
 
-  play: function () {
+  play() {
     this.addEventListeners();
   },
 
-  pause: function () {
+  pause() {
     this.removeEventListeners();
   },
 
@@ -178,7 +178,7 @@ module.exports.Component = registerComponent('hand-controls', {
    * Update handler. More like the `init` handler since the only property is the hand, and
    * that won't be changing much.
    */
-  update: function (previousHand) {
+  update(previousHand) {
     var controlConfiguration;
     var el = this.el;
     var hand = this.data.hand;
@@ -220,7 +220,7 @@ module.exports.Component = registerComponent('hand-controls', {
     }
   },
 
-  remove: function () {
+  remove() {
     this.el.removeObject3D('mesh');
   },
 

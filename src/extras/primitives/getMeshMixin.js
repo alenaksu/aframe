@@ -17,7 +17,7 @@ function addMapping (prop) {
   materialMappings[htmlAttrName] = 'material.' + prop;
 }
 
-module.exports = function getMeshMixin () {
+export default function getMeshMixin () {
   return {
     defaultComponents: {material: {}},
     mappings: utils.extend({}, materialMappings)

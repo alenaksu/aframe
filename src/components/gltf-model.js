@@ -6,10 +6,10 @@ var warn = utils.debug('components:gltf-model:warn');
 /**
  * glTF model loader.
  */
-module.exports.Component = registerComponent('gltf-model', {
+export const Component = registerComponent('gltf-model', {
   schema: {type: 'model'},
 
-  init: function () {
+  init() {
     var self = this;
     var dracoLoader = this.system.getDRACOLoader();
     var meshoptDecoder = this.system.getMeshoptDecoder();
@@ -31,7 +31,7 @@ module.exports.Component = registerComponent('gltf-model', {
     }
   },
 
-  update: function () {
+  update() {
     var self = this;
     var el = this.el;
     var src = this.data;
@@ -55,7 +55,7 @@ module.exports.Component = registerComponent('gltf-model', {
     });
   },
 
-  remove: function () {
+  remove() {
     if (!this.model) { return; }
     this.el.removeObject3D('mesh');
   }

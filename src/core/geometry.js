@@ -34,7 +34,7 @@ Geometry.prototype = {
    *
    * @param {object} data - New geometry data.
    */
-  update: function (data) { /* no-op */ }
+  update(data) { /* no-op */ }
 };
 
 /**

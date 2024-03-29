@@ -4,7 +4,7 @@ AFRAME.registerComponent('pressable', {
     pressDistance: { default: 0.06 }
   },
 
-  init: function () {
+  init() {
     this.worldPosition = new THREE.Vector3();
     this.handEls = document.querySelectorAll('[hand-tracking-controls]');
     this.pressed = false;

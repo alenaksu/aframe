@@ -9,7 +9,7 @@ var DEFAULT_CAMERA_ATTR = 'data-aframe-default-camera';
  * @member {object} activeCameraEl - Active camera entity.
  */
 module.exports.System = registerSystem('camera', {
-  init: function () {
+  init() {
     this.activeCameraEl = null;
 
     this.render = this.render.bind(this);

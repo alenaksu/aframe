@@ -29,7 +29,7 @@ module.exports.Shader = registerShader('flat', {
     this.material = new THREE.MeshBasicMaterial(this.materialData);
   },
 
-  update: function (data) {
+  update(data) {
     this.updateMaterial(data);
     utils.material.updateMap(this, data);
   },

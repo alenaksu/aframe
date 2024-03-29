@@ -11,7 +11,7 @@ AFRAME.registerComponent('entity-generator', {
     spread: {default: 20}
   },
 
-  init: function () {
+  init() {
     var data = this.data;
 
     // Create entities with supplied mixin.

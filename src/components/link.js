@@ -7,7 +7,7 @@ var THREE = require('../lib/three');
  *
  * @member {object} hiddenEls - Store the hidden elements during peek mode.
  */
-module.exports.Component = registerComponent('link', {
+export const Component = registerComponent('link', {
   schema: {
     backgroundColor: {default: 'red', type: 'color'},
     borderColor: {default: 'white', type: 'color'},
@@ -22,7 +22,7 @@ module.exports.Component = registerComponent('link', {
     visualAspectEnabled: {default: false}
   },
 
-  init: function () {
+  init() {
     this.navigate = this.navigate.bind(this);
     this.previousQuaternion = undefined;
     this.quaternionClone = new THREE.Quaternion();
@@ -30,7 +30,7 @@ module.exports.Component = registerComponent('link', {
     this.hiddenEls = [];
   },
 
-  update: function (oldData) {
+  update(oldData) {
     var data = this.data;
     var el = this.el;
     var backgroundColor;
@@ -73,11 +73,11 @@ module.exports.Component = registerComponent('link', {
     }
   },
 
-  play: function () {
+  play() {
     this.updateEventListener();
   },
 
-  pause: function () {
+  pause() {
     this.removeEventListener();
   },
 
@@ -316,7 +316,7 @@ module.exports.Component = registerComponent('link', {
     };
   })(),
 
-  remove: function () {
+  remove() {
     this.removeEventListener();
   }
 });

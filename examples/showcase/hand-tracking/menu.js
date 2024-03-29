@@ -1,6 +1,6 @@
 /* global AFRAME */
 AFRAME.registerComponent('menu', {
-  init: function () {
+  init() {
     var el = this.el;
     var menuBackGroundEl = document.createElement('a-entity');
     menuBackGroundEl.setAttribute('geometry', {

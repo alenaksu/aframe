@@ -77,17 +77,17 @@ suite('propertyTypes', function () {
   suite('registerPropertyType', function () {
     test('registers type', function () {
       assert.notOk('mytype' in propertyTypes);
-      register('mytype', 5);
+      registerComponent('mytype', 5);
       assert.ok('mytype' in propertyTypes);
       assert.equal(propertyTypes.mytype.default, 5);
     });
 
     test('rejects duplicate type names', function () {
       assert.notOk('duplicate' in propertyTypes);
-      register('duplicate', 'first');
+      registerComponent('duplicate', 'first');
       assert.equal(propertyTypes.duplicate.default, 'first');
       assert.throws(function () {
-        register('duplicate', 'second');
+        registerComponent('duplicate', 'second');
       }, 'Property type duplicate is already registered.');
     });
   });

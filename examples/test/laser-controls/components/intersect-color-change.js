@@ -4,7 +4,7 @@
  * Change color if entity when intersected by raycaster.
  */
 AFRAME.registerComponent('intersect-color-change', {
-  init: function () {
+  init() {
     var el = this.el;
     var material = el.getAttribute('material');
     var initialColor = material.color;

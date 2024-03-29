@@ -1,6 +1,6 @@
 /* global AFRAME, THREE */
 AFRAME.registerComponent('center-model', {
-  init: function () {
+  init() {
     var model;
     this.onModelLoaded = this.onModelLoaded.bind(this);
     model = this.el.components['gltf-model'] && this.el.components['gltf-model'].model;

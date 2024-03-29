@@ -7,7 +7,7 @@ var isWebXRAvailable = utils.device.isWebXRAvailable;
  * Maintain list with available tracked controllers.
  */
 module.exports.System = registerSystem('tracked-controls-webvr', {
-  init: function () {
+  init() {
     var self = this;
 
     this.controllers = [];

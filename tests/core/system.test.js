@@ -4,8 +4,8 @@ var systems = require('core/system').systems;
 var registerSystem = require('core/system').registerSystem;
 
 var TestSystem = {
-  init: function () {},
-  update: function () {}
+  init() {},
+  update() {}
 };
 
 suite('System', function () {
@@ -146,7 +146,7 @@ suite('System', function () {
         bar: {type: 'number', default: 50}
       },
 
-      update: function () {
+      update() {
         assert.equal(this.data.foo, 'qaz');
         assert.equal(this.data.bar, 50);
         delete AFRAME.systems.test;
@@ -165,7 +165,7 @@ suite('System', function () {
         bar: {type: 'number', default: 0}
       },
 
-      update: function (oldData) {
+      update(oldData) {
         if (!Object.keys(oldData).length) { return; }
         assert.equal(oldData.foo, 'default');
         assert.equal(oldData.bar, 0);

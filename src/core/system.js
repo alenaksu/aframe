@@ -54,13 +54,13 @@ System.prototype = {
    * Init handler. Called during scene initialization and is only run once.
    * Systems can use this to set initial state.
    */
-  init: function () { /* no-op */ },
+  init() { /* no-op */ },
 
   /**
    * Update handler. Called during scene attribute updates.
    * Systems can use this to dynamically update their state.
    */
-  update: function (oldData) { /* no-op */ },
+  update(oldData) { /* no-op */ },
 
   /**
    * Build data and call update handler.
@@ -111,12 +111,12 @@ System.prototype = {
   /**
    * Called to start any dynamic behavior (e.g., animation, AI, events, physics).
    */
-  play: function () { /* no-op */ },
+  play() { /* no-op */ },
 
   /**
    * Called to stop any dynamic behavior (e.g., animation, AI, events, physics).
    */
-  pause: function () { /* no-op */ }
+  pause() { /* no-op */ }
 };
 
 /**

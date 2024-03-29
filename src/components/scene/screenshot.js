@@ -1,5 +1,5 @@
 /* global ImageData, URL */
-var registerComponent = require('../../core/component').registerComponent;
+import { registerComponent } from '../../core/component.js';
 var THREE = require('../../lib/three');
 
 var VERTEX_SHADER = [
@@ -43,7 +43,7 @@ var FRAGMENT_SHADER = [
  * The cube map produced by the CubeCamera is projected on a quad and then rendered to
  * WebGLRenderTarget with an orthographic camera.
  */
-module.exports.Component = registerComponent('screenshot', {
+export const Component = registerComponent('screenshot', {
   schema: {
     width: {default: 4096},
     height: {default: 2048},
@@ -104,7 +104,7 @@ module.exports.Component = registerComponent('screenshot', {
     this.canvas.height = height;
   },
 
-  play: function () {
+  play() {
     window.addEventListener('keydown', this.onKeyDown);
   },
 

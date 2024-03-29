@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "lib": ["ESNext", "DOM"],
+    "module": "NodeNext",
+    "target": "ES6",
+    "allowJs": false,
+    "checkJs": false,
+    "moduleResolution": "NodeNext",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+  },
+  "include": ["src/**/*.ts", "src/**/*.js"]
+}

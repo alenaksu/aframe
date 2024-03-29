@@ -1,12 +1,12 @@
 /* global AFRAME */
 AFRAME.registerComponent('play-on-click', {
-  init: function () {
+  init() {
     this.onClick = this.onClick.bind(this);
   },
-  play: function () {
+  play() {
     window.addEventListener('click', this.onClick);
   },
-  pause: function () {
+  pause() {
     window.removeEventListener('click', this.onClick);
   },
   onClick: function (evt) {

@@ -17,7 +17,7 @@ module.exports.System = registerSystem('light', {
     defaultLightsEnabled: {default: true}
   },
 
-  init: function () {
+  init() {
     this.defaultLights = false;
     this.userDefinedLights = false;
     // Wait for all entities to fully load before checking for existence of lights.

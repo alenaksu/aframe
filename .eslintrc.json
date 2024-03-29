@@ -36,8 +36,8 @@
         The exception is that ES6 classes are used sparingly - see exceptions below. */
       "files": ["./src/**/*.js"],
       "parserOptions": {
-        "sourceType": "script",
-        "ecmaVersion": 5
+        "sourceType": "module",
+        "ecmaVersion": 6
       }
     },
     {

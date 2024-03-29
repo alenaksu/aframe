@@ -83,7 +83,7 @@ Shader.prototype = {
    *
    * @param {object} data - New material data.
    */
-  update: function (data) {
+  update(data) {
     var key;
     var materialKey;
     var schema = this.schema;

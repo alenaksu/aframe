@@ -1,4 +1,4 @@
-var registerComponent = require('../../core/component').registerComponent;
+import { registerComponent } from '../../core/component.js';
 var constants = require('../../constants/');
 var utils = require('../../utils/');
 
@@ -13,7 +13,7 @@ var ORIENTATION_MODAL_CLASS = 'a-orientation-modal';
 /**
  * UI for entering VR mode.
  */
-module.exports.Component = registerComponent('xr-mode-ui', {
+export const Component = registerComponent('xr-mode-ui', {
   dependencies: ['canvas'],
 
   schema: {
@@ -28,7 +28,7 @@ module.exports.Component = registerComponent('xr-mode-ui', {
 
   sceneOnly: true,
 
-  init: function () {
+  init() {
     var self = this;
     var sceneEl = this.el;
 
@@ -86,7 +86,7 @@ module.exports.Component = registerComponent('xr-mode-ui', {
     this.el.enterAR();
   },
 
-  update: function () {
+  update() {
     var data = this.data;
     var sceneEl = this.el;
 
@@ -125,7 +125,7 @@ module.exports.Component = registerComponent('xr-mode-ui', {
     this.updateEnterInterfaces();
   },
 
-  remove: function () {
+  remove() {
     [this.enterVREl, this.enterAREl, this.orientationModalEl].forEach(function (uiElement) {
       if (uiElement && uiElement.parentNode) {
         uiElement.parentNode.removeChild(uiElement);

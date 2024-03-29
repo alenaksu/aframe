@@ -1,6 +1,6 @@
 /* global AFRAME */
 AFRAME.registerComponent('hover', {
-  init: function () {
+  init() {
     this.onCollisionStarted = this.onCollisionStarted.bind(this);
     this.onCollisionEnded = this.onCollisionEnded.bind(this);
     this.modalEl = this.el.querySelector('[spatial-modal]');

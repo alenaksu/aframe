@@ -9,7 +9,7 @@ var PI_2 = Math.PI / 2;
 /**
  * look-controls. Update entity pose, factoring mouse, touch, and WebVR API data.
  */
-module.exports.Component = registerComponent('look-controls', {
+export const Component = registerComponent('look-controls', {
   dependencies: ['position', 'rotation'],
 
   schema: {
@@ -22,7 +22,7 @@ module.exports.Component = registerComponent('look-controls', {
     mouseEnabled: {default: true}
   },
 
-  init: function () {
+  init() {
     this.deltaYaw = 0;
     this.previousHMDPosition = new THREE.Vector3();
     this.hmdQuaternion = new THREE.Quaternion();
@@ -70,7 +70,7 @@ module.exports.Component = registerComponent('look-controls', {
     }
   },
 
-  update: function (oldData) {
+  update(oldData) {
     var data = this.data;
 
     // Disable grab cursor classes if no longer enabled.
@@ -102,16 +102,16 @@ module.exports.Component = registerComponent('look-controls', {
     this.updateOrientation();
   },
 
-  play: function () {
+  play() {
     this.addEventListeners();
   },
 
-  pause: function () {
+  pause() {
     this.removeEventListeners();
     if (this.pointerLocked) { this.exitPointerLock(); }
   },
 
-  remove: function () {
+  remove() {
     this.removeEventListeners();
     if (this.pointerLocked) { this.exitPointerLock(); }
   },

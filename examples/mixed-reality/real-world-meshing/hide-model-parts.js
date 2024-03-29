@@ -4,7 +4,7 @@ AFRAME.registerComponent('hide-model-parts', {
     parts: {type: 'array'}
   },
 
-  update: function () {
+  update() {
     this.hideParts = this.hideParts.bind(this);
     this.el.addEventListener('model-loaded', this.hideParts);
   },

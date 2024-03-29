@@ -7,7 +7,7 @@ var warn = debug('components:sound:warn');
 /**
  * Sound component.
  */
-module.exports.Component = registerComponent('sound', {
+export const Component = registerComponent('sound', {
   schema: {
     autoplay: {default: false},
     distanceModel: {default: 'inverse', oneOf: ['linear', 'inverse', 'exponential']},
@@ -26,7 +26,7 @@ module.exports.Component = registerComponent('sound', {
 
   multiple: true,
 
-  init: function () {
+  init() {
     var self = this;
 
     this.listener = null;
@@ -39,7 +39,7 @@ module.exports.Component = registerComponent('sound', {
     this.playSoundBound = function () { self.playSound(); };
   },
 
-  update: function (oldData) {
+  update(oldData) {
     var data = this.data;
     var i;
     var sound;
@@ -97,17 +97,17 @@ module.exports.Component = registerComponent('sound', {
     }
   },
 
-  pause: function () {
+  pause() {
     this.stopSound();
     this.removeEventListener();
   },
 
-  play: function () {
+  play() {
     if (this.data.autoplay) { this.playSound(); }
     this.updateEventListener();
   },
 
-  remove: function () {
+  remove() {
     var i;
     var sound;
 

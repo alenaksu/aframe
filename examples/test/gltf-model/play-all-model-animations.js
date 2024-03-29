@@ -5,7 +5,7 @@
  * skeletal or morph animations.
  */
 AFRAME.registerComponent('play-all-model-animations', {
-  init: function () {
+  init() {
     this.model = null;
     this.mixer = null;
 

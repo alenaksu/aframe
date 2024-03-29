@@ -4,13 +4,13 @@ var THREE = require('../lib/three');
 
 var warn = debug('components:obj-model:warn');
 
-module.exports.Component = registerComponent('obj-model', {
+export const Component = registerComponent('obj-model', {
   schema: {
     mtl: {type: 'model'},
     obj: {type: 'model'}
   },
 
-  init: function () {
+  init() {
     var self = this;
 
     this.model = null;
@@ -26,14 +26,14 @@ module.exports.Component = registerComponent('obj-model', {
     });
   },
 
-  update: function () {
+  update() {
     var data = this.data;
     if (!data.obj) { return; }
     this.resetMesh();
     this.loadObj(data.obj, data.mtl);
   },
 
-  remove: function () {
+  remove() {
     this.resetMesh();
   },
 

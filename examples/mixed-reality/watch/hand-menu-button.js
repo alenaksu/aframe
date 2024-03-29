@@ -6,7 +6,7 @@ AFRAME.registerComponent('hand-menu-button', {
     mixin: {default: ''}
   },
 
-  init: function () {
+  init() {
     this.onWatchButtonHovered = this.onWatchButtonHovered.bind(this);
     this.onAnimationComplete = this.onAnimationComplete.bind(this);
     this.onCollisionStarted = this.onCollisionStarted.bind(this);
@@ -100,7 +100,7 @@ AFRAME.registerComponent('hand-menu-button', {
    This system keeps track of all the collided buttons, keeping just the closest to the hand in a hovered state.
 */
 AFRAME.registerSystem('hand-menu-button', {
-  init: function () {
+  init() {
     this.onWatchButtonHovered = this.onWatchButtonHovered.bind(this);
     this.el.parentEl.addEventListener('watchbuttonhoverended', this.onWatchButtonHovered);
     this.el.parentEl.addEventListener('watchbuttonhoverstarted', this.onWatchButtonHovered);

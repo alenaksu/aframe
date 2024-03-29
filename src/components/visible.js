@@ -3,10 +3,10 @@ var registerComponent = require('../core/component').registerComponent;
 /**
  * Visibility component.
  */
-module.exports.Component = registerComponent('visible', {
+export const Component = registerComponent('visible', {
   schema: {default: true},
 
-  update: function () {
+  update() {
     this.el.object3D.visible = this.data;
   }
 });

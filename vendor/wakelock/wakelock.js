@@ -71,4 +71,4 @@ function getWakeLock() {
   }
 }
 
-module.exports = getWakeLock();
+export default getWakeLock();

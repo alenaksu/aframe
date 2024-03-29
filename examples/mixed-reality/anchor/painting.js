@@ -1,12 +1,12 @@
 /* global AFRAME, THREE */
 AFRAME.registerComponent('painting', {
   schema: {src: {type: 'map'}},
-  init: function () {
+  init() {
     this.updateSrc = this.updateSrc.bind(this);
     this.el.addEventListener('model-loaded', this.updateSrc);
   },
 
-  update: function () {
+  update() {
     if (this.data.src) { this.updateSrc(); }
   },
 

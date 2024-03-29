@@ -140,7 +140,7 @@ suite('a-scene (without renderer) - WebXR', function () {
         requestFullscreen: function () {},
         classList: {
           add: function () {},
-          remove: function () {}
+          remove() {}
         }
       };
 
@@ -715,7 +715,7 @@ suite('a-scene (without renderer) - WebVR', function () {
         requestFullscreen: function () {},
         classList: {
           add: function () {},
-          remove: function () {}
+          remove() {}
         }
       };
 
@@ -1248,7 +1248,7 @@ helpers.getSkipCISuite()('a-scene (with renderer)', function () {
     test('calls component pause handlers', function (done) {
       var el = this.el;
       AFRAME.registerComponent('foo', {
-        pause: function () {
+        pause() {
           delete AFRAME.components.foo;
           done();
         }
@@ -1260,7 +1260,7 @@ helpers.getSkipCISuite()('a-scene (with renderer)', function () {
     test('calls component remove handlers', function (done) {
       var el = this.el;
       AFRAME.registerComponent('foo', {
-        remove: function () {
+        remove() {
           delete AFRAME.components.foo;
           done();
         }

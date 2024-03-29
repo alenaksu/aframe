@@ -14,7 +14,7 @@ module.exports.System = registerSystem('webxr', {
     overlayElement: {type: 'selector'}
   },
 
-  update: function () {
+  update() {
     var data = this.data;
     this.sessionConfiguration = {
       requiredFeatures: data.requiredFeatures,

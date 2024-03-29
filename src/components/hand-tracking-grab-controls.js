@@ -9,7 +9,7 @@ registerComponent('hand-tracking-grab-controls', {
     hoverEnabled: {default: false}
   },
 
-  init: function () {
+  init() {
     var el = this.el;
     var data = this.data;
     var trackedObject3DVariable;

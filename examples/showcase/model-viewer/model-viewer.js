@@ -5,7 +5,7 @@ AFRAME.registerComponent('model-viewer', {
     title: {default: ''},
     uploadUIEnabled: {default: true}
   },
-  init: function () {
+  init() {
     var el = this.el;
 
     el.setAttribute('renderer', {colorManagement: true});
@@ -133,7 +133,7 @@ AFRAME.registerComponent('model-viewer', {
     this.el.sceneEl.appendChild(uploadContainerEl);
   },
 
-  update: function () {
+  update() {
     if (!this.data.gltfModel) { return; }
     this.el.setAttribute('ar-hit-test', { target: '#modelEl', type: 'map' });
     this.modelEl.setAttribute('gltf-model', this.data.gltfModel);

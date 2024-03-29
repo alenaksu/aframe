@@ -14,11 +14,11 @@ var TestComponent = {
     a: {default: 0},
     b: {default: 1}
   },
-  init: function () { },
-  update: function () { },
-  remove: function () { },
-  play: function () { },
-  pause: function () { },
+  init() { },
+  update() { },
+  remove() { },
+  play() { },
+  pause() { },
   tick: function () { },
   tock: function () { }
 };
@@ -126,7 +126,7 @@ suite('a-entity', function () {
     const el2 = document.createElement('a-entity');
     registerComponent('test', {
       schema: {array: {type: 'array'}},
-      init: function () {
+      init() {
         assert.notOk(this.el.hasLoaded);
         this.el.addEventListener('loaded', function () {
           assert.ok(el2.components.geometry);
@@ -146,7 +146,7 @@ suite('a-entity', function () {
     var triggerEl = document.createElement('a-entity');
 
     registerComponent('trigger', {
-      init: function () {
+      init() {
         var childEl = document.createElement('a-entity');
         childEl.setAttributeNS(null, 'visible', 'false');
         childEl.addEventListener('loaded', function () {
@@ -399,7 +399,7 @@ suite('a-entity', function () {
       var updateSpy;
       registerComponent('test', {
         schema: {array: {type: 'array'}},
-        update: function () { /* no-op */ }
+        update() { /* no-op */ }
       });
       el.setAttribute('test', {array: [1, 2, 3]});
       updateSpy = this.sinon.spy(el.components.test, 'update');
@@ -462,7 +462,7 @@ suite('a-entity', function () {
           baz: {type: 'asset'}
         },
 
-        init: function () {
+        init() {
           assert.equal(this.data.bar, 'test.png');
           assert.equal(this.data.baz, 'test.jpg');
           delete AFRAME.components.foo;
@@ -998,7 +998,7 @@ suite('a-entity', function () {
 
       registerComponent('dependency', {
         schema: {foo: {type: 'string'}},
-        init: function () {
+        init() {
           assert.equal(this.data.foo, 'bar');
           delete components.root;
           delete components.dependency;
@@ -1017,7 +1017,7 @@ suite('a-entity', function () {
       delete components.root;
       registerComponent('root', {
         dependencies: ['dependency'],
-        init: function () {
+        init() {
           count++;
           if (count === 2) {
             delete components.root;
@@ -1029,7 +1029,7 @@ suite('a-entity', function () {
 
       registerComponent('dependency', {
         schema: {foo: {type: 'string'}},
-        init: function () {
+        init() {
           assert.equal(this.data.foo, 'bar');
           count++;
           if (count === 2) {
@@ -1048,7 +1048,7 @@ suite('a-entity', function () {
       delete components.root;
       registerComponent('root', {
         dependencies: ['dependency'],
-        init: function () {
+        init() {
           assert.equal(this.el.components.dependency.data.foo, 'bar');
           count++;
           if (count === 2) {
@@ -1061,7 +1061,7 @@ suite('a-entity', function () {
 
       registerComponent('dependency', {
         schema: {foo: {default: 'bar'}},
-        init: function () {
+        init() {
           assert.equal(this.data.foo, 'bar');
           count++;
           if (count === 2) {
@@ -1082,7 +1082,7 @@ suite('a-entity', function () {
 
       registerComponent('dependency', {
         schema: {foo: {type: 'string'}},
-        init: function () {
+        init() {
           assert.equal(this.data.foo, 'bar');
           delete components.root;
           delete components.dependency;
@@ -1098,7 +1098,7 @@ suite('a-entity', function () {
       registerComponent('root', {
         dependencies: ['dependency'],
 
-        init: function () {
+        init() {
           assert.equal(this.el.components.dependency.data.foo, 'bar');
           assert.equal(this.el.components.dependency.qux, 'baz');
           delete components.root;
@@ -1109,7 +1109,7 @@ suite('a-entity', function () {
 
       registerComponent('dependency', {
         schema: {foo: {type: 'string'}},
-        init: function () { this.qux = 'baz'; }
+        init() { this.qux = 'baz'; }
       });
 
       el.innerHTML = '<a-entity dependency="foo: bar" root>';
@@ -1151,14 +1151,14 @@ suite('a-entity', function () {
           qux: {default: true}
         },
 
-        init: function () {
+        init() {
           var data = this.data;
           assert.equal(data.foo, 10);
           assert.equal(data.bar, 'red');
           assert.equal(data.qux, true);
         },
 
-        update: function (oldData) {
+        update(oldData) {
           var data = this.data;
           if (oldData && Object.keys(oldData).length) {
             // Second update via setAttribute.
@@ -1178,7 +1178,7 @@ suite('a-entity', function () {
 
       // Component that will do the setAttribute, without dependency.
       AFRAME.registerComponent('test-setter', {
-        init: function () {
+        init() {
           this.el.setAttribute('test', {bar: 'orange'});
         }
       });
@@ -1256,7 +1256,7 @@ suite('a-entity', function () {
 
     test('nested calls do not leak components to children', function () {
       registerComponent('test', {
-        init: function () {
+        init() {
           var children = el.getChildEntities();
           if (children.length) {
             children[0].setAttribute('mixin', 'addGeometry');
@@ -1271,7 +1271,7 @@ suite('a-entity', function () {
 
     test('initializes object3d components first', function (done) {
       registerComponent('test', {
-        init: function () {
+        init() {
           var object3D = this.el.object3D;
           assert.equal(object3D.position.y, 5);
           assert.equal(object3D.visible, false);
@@ -1384,7 +1384,7 @@ suite('a-entity', function () {
 
     test('remove mixin', function (done) {
       registerComponent('test', {
-        remove: function () {
+        remove() {
           // Should be called or else will timeout.
           done();
         }
@@ -1407,7 +1407,7 @@ suite('a-entity', function () {
      */
     test('wait for entity to load on mixin update', function (done) {
       const TestComponent = AFRAME.registerComponent('test', {
-        update: function () {
+        update() {
           assert.ok(this.el.sceneEl);
           done();
         }
@@ -1505,7 +1505,7 @@ suite('a-entity component lifecycle management', function () {
     var updateObj = {b: 5};
 
     AFRAME.registerComponent('setter', {
-      init: function () {
+      init() {
         setTimeout(() => {
           this.el.setAttribute('test', updateObj);
           updateObj.b = 10;

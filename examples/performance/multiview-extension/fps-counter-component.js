@@ -4,7 +4,7 @@ AFRAME.registerComponent('fps-counter', {
     for90fps: {default: true}
   },
 
-  init: function () {
+  init() {
     this.el.setAttribute('text', {align: 'center', side: 'double'});
     this.frameCount = 0;
     this.frameDuration = 0;

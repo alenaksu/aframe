@@ -1,6 +1,6 @@
 /* global AFRAME */
 AFRAME.registerComponent('painting-changer', {
-  init: function () {
+  init() {
     this.currentPaintingIndex = 0;
     this.paintings = [
       '#greco',

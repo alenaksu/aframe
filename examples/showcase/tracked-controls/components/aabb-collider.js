@@ -15,7 +15,7 @@ AFRAME.registerComponent('aabb-collider', {
     state: {default: 'collided'}
   },
 
-  init: function () {
+  init() {
     this.els = [];
     this.collisions = [];
     this.elMax = new THREE.Vector3();
@@ -25,7 +25,7 @@ AFRAME.registerComponent('aabb-collider', {
   /**
    * Update list of entities to test for collision.
    */
-  update: function () {
+  update() {
     var data = this.data;
     var objectEls;
 

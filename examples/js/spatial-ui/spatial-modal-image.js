@@ -15,7 +15,7 @@ AFRAME.registerComponent('spatial-modal-image', {
     src: {type: 'map', default: 'https://cdn.aframe.io/examples/ui/kazetachinu.jpg'}
   },
 
-  init: function () {
+  init() {
     var data = this.data;
     var geometry = this.geometry = SPATIAL.utils.generatePlaneGeometryTwoCorners(data.width, data.height, 0.05, 22);
     var material = this.material = new THREE.MeshBasicMaterial({ color: new THREE.Color(data.color) });
@@ -24,7 +24,7 @@ AFRAME.registerComponent('spatial-modal-image', {
     this.el.setObject3D('mesh', this.plane);
   },
 
-  update: function (oldData) {
+  update(oldData) {
     var data = this.data;
     var material = this.material;
 

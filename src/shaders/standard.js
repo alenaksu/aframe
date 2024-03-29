@@ -63,7 +63,7 @@ module.exports.Shader = registerShader('standard', {
     this.material = new THREE.MeshStandardMaterial(this.materialData);
   },
 
-  update: function (data) {
+  update(data) {
     this.updateMaterial(data);
     utils.material.updateMap(this, data);
     utils.material.updateDistortionMap('normal', this, data);

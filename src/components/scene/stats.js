@@ -1,4 +1,4 @@
-var registerComponent = require('../../core/component').registerComponent;
+import { registerComponent } from '../../core/component.js';
 var RStats = require('../../../vendor/rStats');
 var utils = require('../../utils');
 require('../../../vendor/rStats.extras');
@@ -11,12 +11,12 @@ var ThreeStats = window.threeStats;
 /**
  * Stats appended to document.body by RStats.
  */
-module.exports.Component = registerComponent('stats', {
+export const Component = registerComponent('stats', {
   schema: {default: true},
 
   sceneOnly: true,
 
-  init: function () {
+  init() {
     var scene = this.el;
 
     if (utils.getUrlParameter('stats') === 'false') { return; }
@@ -31,12 +31,12 @@ module.exports.Component = registerComponent('stats', {
     scene.addEventListener('exit-vr', this.showBound);
   },
 
-  update: function () {
+  update() {
     if (!this.stats) { return; }
     return (!this.data) ? this.hide() : this.show();
   },
 
-  remove: function () {
+  remove() {
     this.el.removeEventListener('enter-vr', this.hideBound);
     this.el.removeEventListener('exit-vr', this.showBound);
     if (!this.statsEl) { return; }  // Scene detached.

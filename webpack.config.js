@@ -1,7 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 
-module.exports = {
+export default {
   entry: './src/index.js',
   output: {
     library: 'AFRAME',
@@ -38,6 +38,11 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.ts$/,
+        use: ['ts-loader', 'babel-loader'],
+        exclude: /node_modules/
+      },
       {
         test: /\.js$/,
         use: {

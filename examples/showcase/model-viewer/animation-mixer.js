@@ -8,7 +8,7 @@ AFRAME.registerComponent('animation-mixer', {
     duration: {default: 0}
   },
 
-  init: function () {
+  init() {
     var model = this.el.getObject3D('mesh');
 
     this.model = null;
@@ -30,11 +30,11 @@ AFRAME.registerComponent('animation-mixer', {
     if (this.data.clip) { this.update({}); }
   },
 
-  remove: function () {
+  remove() {
     if (this.mixer) this.mixer.stopAllAction();
   },
 
-  update: function (previousData) {
+  update(previousData) {
     if (!previousData) return;
 
     var data = this.data;

@@ -4,7 +4,7 @@ AFRAME.registerComponent('slider', {
     width: { default: 0.5 }
   },
 
-  init: function () {
+  init() {
     var trackEl = this.trackEl = document.createElement('a-entity');
     this.localPosition = new THREE.Vector3();
     this.onPinchedMoved = this.onPinchedMoved.bind(this);

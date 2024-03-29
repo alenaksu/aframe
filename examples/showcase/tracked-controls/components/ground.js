@@ -4,7 +4,7 @@
  * Loads and setup ground model.
  */
 AFRAME.registerComponent('ground', {
-  init: function () {
+  init() {
     this.onModelLoaded = this.onModelLoaded.bind(this);
     this.el.addEventListener('model-loaded', this.onModelLoaded);
     this.el.setAttribute('gltf-model', '#ground');

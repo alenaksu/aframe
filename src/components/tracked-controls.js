@@ -10,7 +10,7 @@ var registerComponent = require('../core/component').registerComponent;
  * @property {number} hand - If multiple controllers found with id, choose the one with the
  *  given value for hand. If set, we ignore 'controller' property
  */
-module.exports.Component = registerComponent('tracked-controls', {
+export const Component = registerComponent('tracked-controls', {
   schema: {
     autoHide: {default: true},
     controller: {default: -1},
@@ -26,7 +26,7 @@ module.exports.Component = registerComponent('tracked-controls', {
     space: {type: 'string', oneOf: ['targetRaySpace', 'gripSpace'], default: 'targetRaySpace'}
   },
 
-  update: function () {
+  update() {
     var data = this.data;
     var el = this.el;
     if (el.sceneEl.hasWebXR) {

@@ -1,6 +1,6 @@
 /* global AFRAME */
 AFRAME.registerComponent('info-panel', {
-  init: function () {
+  init() {
     var buttonEls = document.querySelectorAll('.menu-button');
     var fadeBackgroundEl = this.fadeBackgroundEl = document.querySelector('#fadeBackground');
 

@@ -9,7 +9,7 @@ registerComponent('obb-collider', {
     centerModel: {default: false}
   },
 
-  init: function () {
+  init() {
     this.previousScale = new THREE.Vector3().copy(this.el.object3D.scale);
     this.auxEuler = new THREE.Euler();
 
@@ -26,11 +26,11 @@ registerComponent('obb-collider', {
     this.system.addCollider(this.el);
   },
 
-  remove: function () {
+  remove() {
     this.system.removeCollider(this.el);
   },
 
-  update: function () {
+  update() {
     if (this.data.trackedObject3D) {
       this.trackedObject3DPath = this.data.trackedObject3D.split('.');
     }

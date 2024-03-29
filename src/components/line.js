@@ -1,7 +1,7 @@
 /* global THREE */
 var registerComponent = require('../core/component').registerComponent;
 
-module.exports.Component = registerComponent('line', {
+export const Component = registerComponent('line', {
   schema: {
     start: {type: 'vec3', default: {x: 0, y: 0, z: 0}},
     end: {type: 'vec3', default: {x: 0, y: 0, z: 0}},
@@ -12,7 +12,7 @@ module.exports.Component = registerComponent('line', {
 
   multiple: true,
 
-  init: function () {
+  init() {
     var data = this.data;
     var geometry;
     var material;
@@ -29,7 +29,7 @@ module.exports.Component = registerComponent('line', {
     this.el.setObject3D(this.attrName, this.line);
   },
 
-  update: function (oldData) {
+  update(oldData) {
     var data = this.data;
     var geometry = this.geometry;
     var geoNeedsUpdate = false;
@@ -62,7 +62,7 @@ module.exports.Component = registerComponent('line', {
     material.visible = data.visible;
   },
 
-  remove: function () {
+  remove() {
     this.el.removeObject3D(this.attrName, this.line);
   }
 });

@@ -15,7 +15,7 @@ var KEYS = [
 /**
  * WASD component to control entities using WASD keys.
  */
-module.exports.Component = registerComponent('wasd-controls', {
+export const Component = registerComponent('wasd-controls', {
   schema: {
     acceleration: {default: 65},
     adAxis: {default: 'x', oneOf: ['x', 'y', 'z']},
@@ -28,7 +28,7 @@ module.exports.Component = registerComponent('wasd-controls', {
     wsInverted: {default: false}
   },
 
-  init: function () {
+  init() {
     // To keep track of the pressed keys.
     this.keys = {};
     this.easing = 1.1;
@@ -63,22 +63,22 @@ module.exports.Component = registerComponent('wasd-controls', {
     el.object3D.position.add(this.getMovementVector(delta));
   },
 
-  update: function (oldData) {
+  update(oldData) {
     // Reset velocity if axis have changed.
     if (oldData.adAxis !== this.data.adAxis) { this.velocity[oldData.adAxis] = 0; }
     if (oldData.wsAxis !== this.data.wsAxis) { this.velocity[oldData.wsAxis] = 0; }
   },
 
-  remove: function () {
+  remove() {
     this.removeKeyEventListeners();
     this.removeVisibilityEventListeners();
   },
 
-  play: function () {
+  play() {
     this.attachKeyEventListeners();
   },
 
-  pause: function () {
+  pause() {
     this.keys = {};
     this.removeKeyEventListeners();
   },
@@ -210,7 +210,7 @@ module.exports.Component = registerComponent('wasd-controls', {
     if (KEYS.indexOf(code) !== -1) { this.keys[code] = true; }
   },
 
-  onKeyUp: function (event) {
+  onKeyup(event) {
     var code;
     code = event.code || KEYCODE_TO_CODE[event.keyCode];
     delete this.keys[code];

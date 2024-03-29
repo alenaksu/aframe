@@ -4,7 +4,7 @@ AFRAME.registerComponent('color-change', {
     color: { default: 'green' }
   },
 
-  init: function () {
+  init() {
     this.bindMethods();
     this.el.addEventListener('pinchedstarted', this.onPinchedStarted);
     this.el.addEventListener('pinchedended', this.onPinchedEnded);

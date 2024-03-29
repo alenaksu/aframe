@@ -20,7 +20,7 @@ module.exports.System = registerSystem('shadow', {
     type: {default: 'pcf', oneOf: ['basic', 'pcf', 'pcfsoft']}
   },
 
-  init: function () {
+  init() {
     var sceneEl = this.sceneEl;
     var data = this.data;
 
@@ -30,7 +30,7 @@ module.exports.System = registerSystem('shadow', {
     sceneEl.renderer.shadowMap.autoUpdate = data.autoUpdate;
   },
 
-  update: function (prevData) {
+  update(prevData) {
     if (prevData.enabled !== this.data.enabled) {
       this.setShadowMapEnabled(this.shadowMapEnabled);
     }

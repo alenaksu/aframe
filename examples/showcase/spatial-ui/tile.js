@@ -15,7 +15,7 @@ AFRAME.registerComponent('tile', {
     src: {type: 'map', default: 'https://cdn.aframe.io/examples/ui/kazetachinu.jpg'}
   },
 
-  init: function () {
+  init() {
     var data = this.data;
     var geometry = this.geometry = this.generatePlaneGeometryIndexed(data.width, data.height, 0.03, 12);
     var material = this.material = new THREE.MeshBasicMaterial({color: this.data.color});
@@ -34,7 +34,7 @@ AFRAME.registerComponent('tile', {
     this.el.setObject3D('mesh', this.plane);
   },
 
-  update: function () {
+  update() {
     this.material.color.set(this.data.color);
   },
 

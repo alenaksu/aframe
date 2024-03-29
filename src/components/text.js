@@ -47,7 +47,7 @@ var protocolRe = /^\w+:/;
  * All the stock fonts are for the `sdf` registered shader, an improved version of jam3's
  * original `sdf` shader.
  */
-module.exports.Component = registerComponent('text', {
+export const Component = registerComponent('text', {
   multiple: true,
 
   schema: {
@@ -88,14 +88,14 @@ module.exports.Component = registerComponent('text', {
     zOffset: {type: 'number', default: 0.001}
   },
 
-  init: function () {
+  init() {
     this.shaderData = {};
     this.geometry = createTextGeometry();
     this.createOrUpdateMaterial();
     this.explicitGeoDimensionsChecked = false;
   },
 
-  update: function (oldData) {
+  update(oldData) {
     var data = this.data;
     var font = this.currentFont;
     if (textures[data.font]) {
@@ -125,7 +125,7 @@ module.exports.Component = registerComponent('text', {
   /**
    * Clean up geometry, material, texture, mesh, objects.
    */
-  remove: function () {
+  remove() {
     this.geometry.dispose();
     this.geometry = null;
     this.el.removeObject3D(this.attrName);

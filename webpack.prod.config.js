@@ -3,7 +3,7 @@ var merge = require('webpack-merge').merge;
 var commonConfiguration = require('./webpack.config.js');
 var TerserPlugin = require('terser-webpack-plugin');
 
-module.exports = merge(commonConfiguration, {
+export default merge(commonConfiguration, {
   output: {
     library: 'AFRAME',
     libraryTarget: 'umd',

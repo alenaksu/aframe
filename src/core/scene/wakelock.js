@@ -1,6 +1,6 @@
 var Wakelock = require('../../../vendor/wakelock/wakelock');
 
-module.exports = function initWakelock (scene) {
+export default function initWakelock (scene) {
   if (!scene.isMobile) { return; }
 
   var wakelock = scene.wakelock = new Wakelock();

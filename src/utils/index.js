@@ -1,46 +1,58 @@
-/* global location */
+/**
+ * Centralized place to reference utilities since utils is exposed to the user.
+ */
 
-/* Centralized place to reference utilities since utils is exposed to the user. */
-var debug = require('./debug');
-var deepAssign = require('deep-assign');
-var device = require('./device');
-var objectPool = require('./object-pool');
+import debug from './debug';
+import deepAssign from 'deep-assign';
+import device from './device';
+import objectPool from './object-pool';
 
 var warn = debug('utils:warn');
 
 /** @deprecated */
-module.exports.bind = function (fn) {
-  return fn.bind.apply(fn, Array.prototype.slice.call(arguments, 1));
+export const bind = (fn: Function, ...args: unknown[]) => {
+  return fn.bind.apply(fn, args);
 };
-module.exports.coordinates = require('./coordinates');
-module.exports.debug = debug;
-module.exports.device = device;
-module.exports.entity = require('./entity');
-module.exports.forceCanvasResizeSafariMobile = require('./forceCanvasResizeSafariMobile');
-module.exports.material = require('./material');
-module.exports.objectPool = objectPool;
-module.exports.split = require('./split').split;
-module.exports.styleParser = require('./styleParser');
-module.exports.trackedControls = require('./tracked-controls');
 
-module.exports.checkHeadsetConnected = function () {
+export * as coordinates from './coordinates';
+export {default as debug} from './debug';
+export * as deviceFile from './device';
+export {default as entity} from './entity';
+export forceCanvasResizeSafariMobile from './forceCanvasResizeSafariMobile';
+export material from './material';
+export objectPool from './object-pool';
+export split from './split';
+export styleParser from './styleParser';
+export trackedControls from './tracked-controls';
+
+
+export const checkHeadsetConnected = (...args: unknown[]) => {
   warn('`utils.checkHeadsetConnected` has moved to `utils.device.checkHeadsetConnected`');
-  return device.checkHeadsetConnected(arguments);
+  return device.checkHeadsetConnected(args);
 };
-module.exports.isGearVR = module.exports.device.isGearVR = function () {
+
+export const isGearVR = () => {
   warn('`utils.isGearVR` has been deprecated, use `utils.device.isMobileVR`');
-};
-module.exports.isIOS = function () {
+}
+
+export const isIOS = (...args: unknown[]) => {
   warn('`utils.isIOS` has moved to `utils.device.isIOS`');
-  return device.isIOS(arguments);
-};
-module.exports.isOculusGo = module.exports.device.isOculusGo = function () {
+  return device.isIOS(args);
+}
+
+export const isOculusGo = function () {
   warn('`utils.isOculusGo` has been deprecated, use `utils.device.isMobileVR`');
 };
-module.exports.isMobile = function () {
-  warn('`utils.isMobile has moved to `utils.device.isMobile`');
-  return device.isMobile(arguments);
+
+export const isMobile = (...args: unknown[]) => {
+  warn('`utils.isMobile` has moved to `utils.device.isMobile`');
+  return device.isMobile(args);
 };
+
+export const device = {
+  ...deviceFile,
+
+}
 
 /**
  * Returns throttle function that gets called at most once every interval.
@@ -50,17 +62,19 @@ module.exports.isMobile = function () {
  * @param {object} optionalContext - If given, bind function to throttle to this context.
  * @returns {function} Throttled function.
  */
-module.exports.throttle = function (functionToThrottle, minimumInterval, optionalContext) {
-  var lastTime;
+export const throttle = <T extends (...args: any) => any>(functionToThrottle: T, minimumInterval: number, optionalContext?: unknown) => {
+  let lastTime;
+
   if (optionalContext) {
     functionToThrottle = functionToThrottle.bind(optionalContext);
   }
-  return function () {
-    var time = Date.now();
-    var sinceLastTime = typeof lastTime === 'undefined' ? minimumInterval : time - lastTime;
+
+  return (...args: Parameters<T>) => {
+    const time = Date.now();
+    const sinceLastTime = typeof lastTime === 'undefined' ? minimumInterval : time - lastTime;
     if (typeof lastTime === 'undefined' || (sinceLastTime >= minimumInterval)) {
       lastTime = time;
-      functionToThrottle.apply(null, arguments);
+      functionToThrottle.apply(null, args);
     }
   };
 };

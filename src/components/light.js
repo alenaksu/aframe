@@ -14,7 +14,7 @@ var probeCache = {};
 /**
  * Light component.
  */
-module.exports.Component = registerComponent('light', {
+export const Component = registerComponent('light', {
   schema: {
     angle: {default: 60, if: {type: ['spot']}},
     color: {type: 'color', if: {type: ['ambient', 'directional', 'hemisphere', 'point', 'spot']}},
@@ -51,7 +51,7 @@ module.exports.Component = registerComponent('light', {
   /**
    * Notifies scene a light has been added to remove default lighting.
    */
-  init: function () {
+  init() {
     var el = this.el;
     this.light = null;
     this.defaultTarget = null;
@@ -61,7 +61,7 @@ module.exports.Component = registerComponent('light', {
   /**
    * (Re)create or update light.
    */
-  update: function (oldData) {
+  update(oldData) {
     var data = this.data;
     var diffData = diff(data, oldData);
     var light = this.light;
@@ -373,7 +373,7 @@ module.exports.Component = registerComponent('light', {
   /**
    * Remove light on remove (callback).
    */
-  remove: function () {
+  remove() {
     var el = this.el;
     el.removeObject3D('light');
     if (el.getObject3D('cameraHelper')) {

@@ -39,7 +39,7 @@ var STRING_OBJECT3D = 'object3D';
  * @member {object} animation - anime.js instance.
  * @member {boolean} animationIsPlaying - Control if animation is playing.
  */
-module.exports.Component = registerComponent('animation', {
+export const Component = registerComponent('animation', {
   schema: {
     autoplay: {default: true},
     delay: {default: 0},
@@ -70,7 +70,7 @@ module.exports.Component = registerComponent('animation', {
 
   multiple: true,
 
-  init: function () {
+  init() {
     var self = this;
 
     this.eventDetail = {name: this.attrName};
@@ -102,7 +102,7 @@ module.exports.Component = registerComponent('animation', {
     };
   },
 
-  update: function (oldData) {
+  update(oldData) {
     var config = this.config;
     var data = this.data;
 
@@ -131,12 +131,12 @@ module.exports.Component = registerComponent('animation', {
     this.animation.tick(this.time);
   },
 
-  remove: function () {
+  remove() {
     this.pauseAnimation();
     this.removeEventListeners();
   },
 
-  pause: function () {
+  pause() {
     this.paused = true;
     this.pausedWasPlaying = this.animationIsPlaying;
     this.pauseAnimation();
@@ -146,7 +146,7 @@ module.exports.Component = registerComponent('animation', {
   /**
    * `play` handler only for resuming scene.
    */
-  play: function () {
+  play() {
     if (!this.paused) { return; }
     this.paused = false;
     this.addEventListeners();

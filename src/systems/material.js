@@ -17,7 +17,7 @@ var ImageLoader = new THREE.ImageLoader();
  * @member {object} sourceCache - Texture source cache for, Image, Video and Canvas sources
  */
 module.exports.System = registerSystem('material', {
-  init: function () {
+  init() {
     this.materials = {};
     this.sourceCache = {};
   },

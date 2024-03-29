@@ -5,7 +5,7 @@ AFRAME.registerComponent('ui-controller', {
     modalElement: {type: 'selector', default: '[spatial-modal]'}
   },
 
-  init: function () {
+  init() {
     this.onStartButtonClicked = this.onStartButtonClicked.bind(this);
     this.onCloseButtonClicked = this.onCloseButtonClicked.bind(this);
     this.onTileClicked = this.onTileClicked.bind(this);

@@ -6,7 +6,7 @@
 AFRAME.registerComponent('draw-canvas-rectangles', {
   schema: {canvas: {type: 'selector'}},
 
-  init: function () {
+  init() {
     var canvas = this.canvas = this.data.canvas;
     var ctx = this.ctx = canvas.getContext('2d');
     ctx.fillStyle = 'rgb(0, 0, 0)';

@@ -1,7 +1,7 @@
 /* global AFRAME */
 AFRAME.registerComponent('page-turn', {
   schema: {direction: {default: 'forward', oneOf: ['forward', 'backward']}},
-  init: function () {
+  init() {
     this.pages = ['panel', 'ghibli', 'bunny'];
     this.turnPage = this.turnPage.bind(this);
     this.el.addEventListener('click', this.turnPage);

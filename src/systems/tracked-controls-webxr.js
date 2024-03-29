@@ -6,7 +6,7 @@ var utils = require('../utils');
  * Maintain list with available tracked controllers.
  */
 module.exports.System = registerSystem('tracked-controls-webxr', {
-  init: function () {
+  init() {
     this.controllers = [];
     this.oldControllers = [];
     this.oldControllersLength = 0;

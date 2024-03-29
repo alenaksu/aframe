@@ -1,7 +1,7 @@
 /* global AFRAME, THREE */
 
 AFRAME.registerSystem('link-controls', {
-  init: function () {
+  init() {
     this.peeking = false;
   }
 });
@@ -16,7 +16,7 @@ AFRAME.registerSystem('link-controls', {
 AFRAME.registerComponent('link-controls', {
   schema: {hand: {default: 'left'}},
 
-  init: function () {
+  init() {
     var el = this.el;
     var self = this;
 
@@ -162,14 +162,14 @@ AFRAME.registerComponent('link-controls', {
     this.stopPeeking = this.stopPeeking.bind(this);
   },
 
-  play: function () {
+  play() {
     var sceneEl = this.el.sceneEl;
     sceneEl.addEventListener('mouseenter', this.onMouseEnter);
     sceneEl.addEventListener('mouseleave', this.onMouseLeave);
     this.addControllerEventListeners();
   },
 
-  pause: function () {
+  pause() {
     var sceneEl = this.el.sceneEl;
     sceneEl.removeEventListener('mouseenter', this.onMouseEnter);
     sceneEl.removeEventListener('mouseleave', this.onMouseLeave);

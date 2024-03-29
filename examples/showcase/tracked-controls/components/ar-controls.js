@@ -4,7 +4,7 @@
  * Loads and setup ground model.
  */
 AFRAME.registerComponent('ar-controls', {
-  init: function () {
+  init() {
     this.updateControllers = this.updateControllers.bind(this);
     this.onSelect = this.onSelect.bind(this);
     this.el.sceneEl.addEventListener('controllersupdated', this.updateControllers);

@@ -4,7 +4,7 @@ AFRAME.registerComponent('camera-position', {
     mobile: {type: 'vec3', default: {x: 0, y: 1.6, z: 3}},
     desktop: {type: 'vec3', default: {x: 0, y: 1.6, z: 2}}
   },
-  init: function () {
+  init() {
     this.onCameraSetActive = this.onCameraSetActive.bind(this);
     this.resetCamera = this.resetCamera.bind(this);
     if (this.el.camera) { this.onCameraSetActive(); }

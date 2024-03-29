@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   // Tiny KeyboardEvent.code polyfill.
   KEYCODE_TO_CODE: {
     '38': 'ArrowUp',

@@ -46,7 +46,7 @@ var INDEX_CONTROLLER_POSITION_OFFSET = isWebXRAvailable ? INDEX_CONTROLLER_POSIT
  * trackpad, trigger, grip, menu, system
  * Load a controller model and highlight the pressed buttons.
  */
-module.exports.Component = registerComponent('valve-index-controls', {
+export const Component = registerComponent('valve-index-controls', {
   schema: {
     hand: {default: 'left'},
     buttonColor: {type: 'color', default: '#FAFAFA'},  // Off-white.
@@ -63,7 +63,7 @@ module.exports.Component = registerComponent('valve-index-controls', {
     buttons: ['trigger', 'grip', 'trackpad', 'thumbstick', 'abutton']
   },
 
-  init: function () {
+  init() {
     var self = this;
     this.controllerPresent = false;
     this.lastControllerCheck = 0;
@@ -77,12 +77,12 @@ module.exports.Component = registerComponent('valve-index-controls', {
     this.bindMethods();
   },
 
-  play: function () {
+  play() {
     this.checkIfControllerPresent();
     this.addControllersUpdateListener();
   },
 
-  pause: function () {
+  pause() {
     this.removeEventListeners();
     this.removeControllersUpdateListener();
   },
@@ -161,7 +161,7 @@ module.exports.Component = registerComponent('valve-index-controls', {
     this.el.sceneEl.removeEventListener('controllersupdated', this.onControllersUpdate, false);
   },
 
-  onControllersUpdate: function () {
+  onControllersupdate() {
     this.checkIfControllerPresent();
   },
 

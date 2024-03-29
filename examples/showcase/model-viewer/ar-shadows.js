@@ -7,7 +7,7 @@ AFRAME.registerComponent('ar-shadows', {
   schema: {
     opacity: {default: 0.3}
   },
-  init: function () {
+  init() {
     this.el.sceneEl.addEventListener('enter-vr', (ev) => {
       this.wasVisible = this.el.getAttribute('visible');
       if (this.el.sceneEl.is('ar-mode')) {

@@ -1,7 +1,7 @@
 /* global AFRAME */
 AFRAME.registerComponent('cubes-generator', {
   schema: {objectsNumber: {default: 5000}},
-  init: function () {
+  init() {
     var objectsNumber = this.data.objectsNumber;
     this.cubeDistributionWidth = 100;
     for (var i = 0; i < objectsNumber; i++) {

@@ -5,7 +5,7 @@ AFRAME.registerComponent('stats-in-vr', {
     frames: {default: 30}
   },
 
-  init: function () {
+  init() {
     this.renderTimes = [];
   },
 

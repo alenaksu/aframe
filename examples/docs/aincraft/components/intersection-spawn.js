@@ -12,7 +12,7 @@ AFRAME.registerComponent('intersection-spawn', {
     parse: AFRAME.utils.styleParser.parse
   },
 
-  init: function () {
+  init() {
     var data = this.data;
     var el = this.el;
 

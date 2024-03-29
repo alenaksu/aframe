@@ -5,7 +5,7 @@ AFRAME.registerComponent('button', {
     width: {default: 0.11},
     toggable: {default: false}
   },
-  init: function () {
+  init() {
     var el = this.el;
     var labelEl = this.labelEl = document.createElement('a-entity');
 
@@ -43,7 +43,7 @@ AFRAME.registerComponent('button', {
     this.onPressedEnded = this.onPressedEnded.bind(this);
   },
 
-  update: function (oldData) {
+  update(oldData) {
     if (oldData.label !== this.data.label) {
       this.labelEl.setAttribute('text', 'value', this.data.label);
     }

@@ -53,7 +53,7 @@ AFRAME.registerComponent('hand-menu', {
     </a-entity>
   `,
 
-  init: function () {
+  init() {
     this.onCollisionStarted = this.onCollisionStarted.bind(this);
     this.onCollisionEnded = this.onCollisionEnded.bind(this);
     this.onModelLoaded = this.onModelLoaded.bind(this);

@@ -57,4 +57,4 @@ Util.isLandscapeMode = function() {
 };
 
 
-module.exports = Util;
+export default Util;

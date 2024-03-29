@@ -33,7 +33,7 @@ var INPUT_MAPPING = {
  * controller buttons: trackpad, trigger
  * Load a controller model and highlight the pressed buttons.
  */
-module.exports.Component = registerComponent('generic-tracked-controller-controls', {
+export const Component = registerComponent('generic-tracked-controller-controls', {
   schema: {
     hand: {default: ''},  // This informs the degenerate arm model.
     defaultModel: {default: true},
@@ -56,7 +56,7 @@ module.exports.Component = registerComponent('generic-tracked-controller-control
     this.onAxisMoved = this.onAxisMoved.bind(this);
   },
 
-  init: function () {
+  init() {
     var self = this;
     this.onButtonChanged = this.onButtonChanged.bind(this);
     this.onButtonDown = function (evt) { onButtonEvent(evt.detail.id, 'down', self); };
@@ -108,13 +108,13 @@ module.exports.Component = registerComponent('generic-tracked-controller-control
       {hand: hand, iterateControllerProfiles: true});
   },
 
-  play: function () {
+  play() {
     if (this.wasControllerConnected) { return; }
     this.checkIfControllerPresent();
     this.addControllersUpdateListener();
   },
 
-  pause: function () {
+  pause() {
     this.removeEventListeners();
     this.removeControllersUpdateListener();
   },
@@ -147,7 +147,7 @@ module.exports.Component = registerComponent('generic-tracked-controller-control
     this.el.sceneEl.removeEventListener('controllersupdated', this.onControllersUpdate, false);
   },
 
-  onControllersUpdate: function () {
+  onControllersupdate() {
     if (!this.wasControllerConnected) { return; }
     this.checkIfControllerPresent();
   },

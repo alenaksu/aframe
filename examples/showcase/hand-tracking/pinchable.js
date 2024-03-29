@@ -4,7 +4,7 @@ AFRAME.registerComponent('pinchable', {
     pinchDistance: { default: 0.1 }
   },
 
-  init: function () {
+  init() {
     var sceneEl = this.el.sceneEl;
     this.worldPosition = new THREE.Vector3();
     this.bindMethods();

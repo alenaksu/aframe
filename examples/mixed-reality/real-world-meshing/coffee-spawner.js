@@ -4,7 +4,7 @@ AFRAME.registerComponent('coffee-spawner', {
     delay: {default: 250},
     targetElementSelector: {default: ''}
   },
-  init: function () {
+  init() {
     var el = this.el;
     this.delaySpawn = this.delaySpawn.bind(this);
     this.cancelDelayedSpawn = this.cancelDelayedSpawn.bind(this);

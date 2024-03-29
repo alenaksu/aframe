@@ -1,6 +1,6 @@
 /* global AFRAME */
 AFRAME.registerComponent('anchor-grabbed-entity', {
-  init: function () {
+  init() {
     this.el.addEventListener('grabstarted', this.deleteAnchor.bind(this));
     this.el.addEventListener('grabended', this.updateAnchor.bind(this));
   },

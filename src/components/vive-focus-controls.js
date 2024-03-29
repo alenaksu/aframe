@@ -45,7 +45,7 @@ var INPUT_MAPPING = isWebXRAvailable ? INPUT_MAPPING_WEBXR : INPUT_MAPPING_WEBVR
  * controller buttons: trackpad, trigger
  * Load a controller model and highlight the pressed buttons.
  */
-module.exports.Component = registerComponent('vive-focus-controls', {
+export const Component = registerComponent('vive-focus-controls', {
   schema: {
     hand: {default: ''},  // This informs the degenerate arm model.
     buttonTouchedColor: {type: 'color', default: '#BBBBBB'},
@@ -65,7 +65,7 @@ module.exports.Component = registerComponent('vive-focus-controls', {
     this.onAxisMoved = this.onAxisMoved.bind(this);
   },
 
-  init: function () {
+  init() {
     var self = this;
     this.onButtonChanged = this.onButtonChanged.bind(this);
     this.onButtonDown = function (evt) { onButtonEvent(evt.detail.id, 'down', self); };
@@ -108,12 +108,12 @@ module.exports.Component = registerComponent('vive-focus-controls', {
                                         this.data.hand ? {hand: this.data.hand} : {});
   },
 
-  play: function () {
+  play() {
     this.checkIfControllerPresent();
     this.addControllersUpdateListener();
   },
 
-  pause: function () {
+  pause() {
     this.removeEventListeners();
     this.removeControllersUpdateListener();
   },
@@ -138,7 +138,7 @@ module.exports.Component = registerComponent('vive-focus-controls', {
     this.el.sceneEl.removeEventListener('controllersupdated', this.onControllersUpdate, false);
   },
 
-  onControllersUpdate: function () {
+  onControllersupdate() {
     this.checkIfControllerPresent();
   },
 

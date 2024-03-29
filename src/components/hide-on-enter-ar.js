@@ -1,7 +1,7 @@
 var register = require('../core/component').registerComponent;
 
-module.exports.Component = register('hide-on-enter-ar', {
-  init: function () {
+export const Component = registerComponent('hide-on-enter-ar', {
+  init() {
     var self = this;
     this.el.sceneEl.addEventListener('enter-vr', function () {
       if (self.el.sceneEl.is('ar-mode')) {

@@ -16,7 +16,7 @@ AFRAME.registerComponent('spatial-button', {
     text: {default: 'start'}
   },
 
-  init: function () {
+  init() {
     var data = this.data;
     var geometry = this.geometry = SPATIAL.utils.generatePlaneGeometryIndexed(data.width, data.height, 0.035, 22);
     var material = this.material = new THREE.MeshPhysicalMaterial({

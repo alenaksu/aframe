@@ -67,7 +67,7 @@ module.exports.Shader = registerShader('phong', {
     });
   },
 
-  update: function (data) {
+  update(data) {
     this.updateMaterial(data);
     utils.material.updateMap(this, data);
     utils.material.updateDistortionMap('normal', this, data);

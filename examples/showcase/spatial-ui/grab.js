@@ -1,6 +1,6 @@
 /* global AFRAME */
 AFRAME.registerComponent('grab', {
-  // init: function () {
+  // init() {
   // this.grabbed = null;
 
   // },

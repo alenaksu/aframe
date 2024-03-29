@@ -40,7 +40,7 @@ var EVENTS = {
  * @member {number} prevCheckTime - Previous time intersection was checked. To help interval.
  * @member {object} raycaster - three.js Raycaster.
  */
-module.exports.Component = registerComponent('raycaster', {
+export const Component = registerComponent('raycaster', {
   schema: {
     autoRefresh: {default: true},
     direction: {type: 'vec3', default: {x: 0, y: 0, z: -1}},
@@ -58,7 +58,7 @@ module.exports.Component = registerComponent('raycaster', {
 
   multiple: true,
 
-  init: function () {
+  init() {
     this.clearedIntersectedEls = [];
     this.unitLineEndVec3 = new THREE.Vector3();
     this.intersectedEls = [];
@@ -89,7 +89,7 @@ module.exports.Component = registerComponent('raycaster', {
   /**
    * Create or update raycaster object.
    */
-  update: function (oldData) {
+  update(oldData) {
     var data = this.data;
     var el = this.el;
     var raycaster = this.raycaster;
@@ -134,15 +134,15 @@ module.exports.Component = registerComponent('raycaster', {
     this.setDirty();
   },
 
-  play: function () {
+  play() {
     this.addEventListeners();
   },
 
-  pause: function () {
+  pause() {
     this.removeEventListeners();
   },
 
-  remove: function () {
+  remove() {
     if (this.data.showLine) {
       this.el.removeAttribute('line');
     }

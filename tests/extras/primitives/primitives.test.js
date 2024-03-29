@@ -112,7 +112,7 @@ suite('registerPrimitive (using innerHTML)', function () {
         qux: {default: ''},
         quux: {default: ''}
       },
-      init: function () {
+      init() {
         // Set by default component.
         assert.equal(this.data.foo, 'bar');
         // Set by first mapping.
@@ -274,7 +274,7 @@ suite('registerPrimitive (using innerHTML)', function () {
   test('handles component with dependency', function (done) {
     AFRAME.registerComponent('testdep', {
       schema: {foo: {default: ''}},
-      init: function () {
+      init() {
         this.el.setObject3D('test', new THREE.Object3D());
       }
     });
@@ -282,7 +282,7 @@ suite('registerPrimitive (using innerHTML)', function () {
     AFRAME.registerComponent('test', {
       dependencies: ['testdep'],
       schema: {default: ''},
-      init: function () {
+      init() {
         assert.ok(this.el.getObject3D('test'), 'testdep should have set this object3D.');
         delete AFRAME.components.test;
         delete AFRAME.components.testdep;

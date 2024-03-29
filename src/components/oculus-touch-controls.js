@@ -186,7 +186,7 @@ var INPUT_MAPPING = isWebXRAvailable ? INPUT_MAPPING_WEBXR : INPUT_MAPPING_WEBVR
  * controller buttons: thumbstick, trigger, grip, xbutton, ybutton, surface
  * Load a controller model and highlight the pressed buttons.
  */
-module.exports.Component = registerComponent('oculus-touch-controls', {
+export const Component = registerComponent('oculus-touch-controls', {
   schema: {
     hand: {default: 'left'},
     buttonColor: {type: 'color', default: '#999'},  // Off-white.
@@ -208,7 +208,7 @@ module.exports.Component = registerComponent('oculus-touch-controls', {
     this.onAxisMoved = this.onAxisMoved.bind(this);
   },
 
-  init: function () {
+  init() {
     var self = this;
     this.onButtonDown = function (evt) { onButtonEvent(evt.detail.id, 'down', self, self.data.hand); };
     this.onButtonUp = function (evt) { onButtonEvent(evt.detail.id, 'up', self, self.data.hand); };
@@ -254,12 +254,12 @@ module.exports.Component = registerComponent('oculus-touch-controls', {
     });
   },
 
-  play: function () {
+  play() {
     this.checkIfControllerPresent();
     this.addControllersUpdateListener();
   },
 
-  pause: function () {
+  pause() {
     this.removeEventListeners();
     this.removeControllersUpdateListener();
   },
@@ -331,7 +331,7 @@ module.exports.Component = registerComponent('oculus-touch-controls', {
     this.el.sceneEl.removeEventListener('controllersupdated', this.onControllersUpdate, false);
   },
 
-  onControllersUpdate: function () {
+  onControllersupdate() {
     // Note that due to gamepadconnected event propagation issues, we don't rely on events.
     this.checkIfControllerPresent();
   },

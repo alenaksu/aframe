@@ -88,4 +88,4 @@ if (ls && (parseInt(ls.logs, 10) || ls.logs === 'true')) {
 
 if (process.browser) { window.logs = debug; }
 
-module.exports = debug;
+export default debug;

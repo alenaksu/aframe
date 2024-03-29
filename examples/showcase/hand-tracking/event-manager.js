@@ -1,7 +1,7 @@
 /* global AFRAME */
 AFRAME.registerComponent('event-manager', {
 
-  init: function () {
+  init() {
     this.bindMethods();
 
     this.boxGeometryEl = document.querySelector('#boxGeometry');

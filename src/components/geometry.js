@@ -9,21 +9,21 @@ var dummyGeometry = new THREE.BufferGeometry();
  * Geometry component. Combined with material component to make a mesh in 3D object.
  * Extended with registered geometries.
  */
-module.exports.Component = registerComponent('geometry', {
+export const Component = registerComponent('geometry', {
   schema: {
     buffer: {default: true},
     primitive: {default: 'box', oneOf: geometryNames, schemaChange: true},
     skipCache: {default: false}
   },
 
-  init: function () {
+  init() {
     this.geometry = null;
   },
 
   /**
    * Talk to geometry system to get or create geometry.
    */
-  update: function (previousData) {
+  update(previousData) {
     var data = this.data;
     var el = this.el;
     var mesh;
@@ -61,7 +61,7 @@ module.exports.Component = registerComponent('geometry', {
    * Tell geometry system that entity is no longer using the geometry.
    * Unset the geometry on the mesh
    */
-  remove: function () {
+  remove() {
     this.system.unuseGeometry(this.data);
     this.el.getObject3D('mesh').geometry = dummyGeometry;
     this.geometry = null;

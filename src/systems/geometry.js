@@ -10,7 +10,7 @@ var registerSystem = require('../core/system').registerSystem;
  *         know whether to dispose on removal.
  */
 module.exports.System = registerSystem('geometry', {
-  init: function () {
+  init() {
     this.cache = {};
     this.cacheCount = {};
   },

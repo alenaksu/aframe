@@ -33,7 +33,7 @@ var EVENTS = {
  * @property {number} hand - If multiple controllers found with id, choose the one with the
  *  given value for hand. If set, we ignore 'controller' property
  */
-module.exports.Component = registerComponent('tracked-controls-webvr', {
+export const Component = registerComponent('tracked-controls-webvr', {
   schema: {
     autoHide: {default: true},
     controller: {default: 0},
@@ -46,7 +46,7 @@ module.exports.Component = registerComponent('tracked-controls-webvr', {
     headElement: {type: 'selector'}
   },
 
-  init: function () {
+  init() {
     // Copy variables back to tracked-controls for backwards compatibility.
     // Some 3rd components rely on them.
     this.axis = this.el.components['tracked-controls'].axis = [0, 0, 0];

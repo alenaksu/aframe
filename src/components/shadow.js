@@ -8,24 +8,24 @@ var registerComponent = component.registerComponent;
  * When applied to an entity, that entity's geometry and any descendants will cast or receive
  * shadows as specified by the `cast` and `receive` properties.
  */
-module.exports.Component = registerComponent('shadow', {
+export const Component = registerComponent('shadow', {
   schema: {
     cast: {default: true},
     receive: {default: true}
   },
 
-  init: function () {
+  init() {
     this.onMeshChanged = this.update.bind(this);
     this.el.addEventListener('object3dset', this.onMeshChanged);
     this.system.setShadowMapEnabled(true);
   },
 
-  update: function () {
+  update() {
     var data = this.data;
     this.updateDescendants(data.cast, data.receive);
   },
 
-  remove: function () {
+  remove() {
     var el = this.el;
     el.removeEventListener('object3dset', this.onMeshChanged);
     this.updateDescendants(false, false);

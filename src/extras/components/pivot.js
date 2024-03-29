@@ -1,4 +1,4 @@
-var registerComponent = require('../../core/component').registerComponent;
+import { registerComponent } from '../../core/component.js';
 var THREE = require('../../lib/three');
 
 var originalPosition = new THREE.Vector3();
@@ -12,7 +12,7 @@ registerComponent('pivot', {
 
   schema: {type: 'vec3'},
 
-  init: function () {
+  init() {
     var data = this.data;
     var el = this.el;
     var originalParent = el.object3D.parent;

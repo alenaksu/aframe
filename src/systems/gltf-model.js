@@ -29,11 +29,11 @@ module.exports.System = registerSystem('gltf-model', {
     meshoptDecoderPath: {default: ''}
   },
 
-  init: function () {
+  init() {
     this.update();
   },
 
-  update: function () {
+  update() {
     var dracoDecoderPath = this.data.dracoDecoderPath;
     var basisTranscoderPath = this.data.basisTranscoderPath;
     var meshoptDecoderPath = this.data.meshoptDecoderPath;

@@ -9,12 +9,12 @@ var warn = utils.debug('components:anchored:warn');
  * Once anchored the entity remains to a fixed position in real-world space.
  * If the anchor is persistent, the anchor positioned remains across sessions or until the browser data is cleared.
  */
-module.exports.Component = registerComponent('anchored', {
+export const Component = registerComponent('anchored', {
   schema: {
     persistent: {default: false}
   },
 
-  init: function () {
+  init() {
     var sceneEl = this.el.sceneEl;
     var webxrData = sceneEl.getAttribute('webxr');
     var optionalFeaturesArray = webxrData.optionalFeatures;

@@ -1,7 +1,7 @@
 /* global AFRAME */
 
 AFRAME.registerComponent('spaceship', {
-  init: function () {
+  init() {
     var el = this.el;
     var geometry = 'primitive: box; height: 2; width: 2; depth: 2;';
     var material = 'color: #167341; roughness: 1.0; metalness: 0.2;';
@@ -10,11 +10,11 @@ AFRAME.registerComponent('spaceship', {
     this.onKeyDown = this.onKeyDown.bind(this);
   },
 
-  play: function () {
+  play() {
     this.attachKeyEventListeners();
   },
 
-  pause: function () {
+  pause() {
     this.removeKeyEventListeners();
   },
 

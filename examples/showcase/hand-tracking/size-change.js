@@ -1,6 +1,6 @@
 /* global AFRAME */
 AFRAME.registerComponent('size-change', {
-  init: function () {
+  init() {
     this.bindMethods();
     this.el.sceneEl.addEventListener('sliderchanged', this.onSliderChanged);
   },
